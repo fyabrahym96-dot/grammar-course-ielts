@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كورس قواعد الآيلتس | IELTS Grammar Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Soft "Second Brain" graph-paper theme */
+    --ink: #213050;            /* deep navy text */
+    --ink-soft: #51608a;
+    --navy: #1d2c4a;
+    --emerald-deep: #3b3a8c;   /* deep indigo — icons, headers, pills */
+    --emerald: #565ab0;        /* mid indigo */
+    --emerald-light: #8381D9;  /* periwinkle */
+    --gold: #8CCCE5;           /* cyan accent on dark */
+    --gold-soft: #bfe6f2;
+    --cream: #ffffff;          /* card background */
+    --cream-soft: #f4f7fe;     /* soft cool white */
+    --hand: #8b86d6;           /* handwriting purple */
+    --hi-1: #9aa6e8;           /* highlight gradient purple */
+    --hi-2: #93c5e0;           /* highlight gradient blue */
+    --grid-line: rgba(140, 165, 220, 0.22);
+    --grad-purple: #8381D9;
+    --grad-cyan: #8CCCE5;
+    --success: #2f9e7a;
+    --error: #d2607a;
+    --shadow-soft: 0 10px 24px rgba(60, 80, 140, 0.12);
+    --shadow-strong: 0 20px 50px rgba(60, 80, 140, 0.22);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    font-family: 'Tajawal', sans-serif;
+    background: #e9f0fb;
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 50% 0%, #ffffff 0%, transparent 48%),
+      linear-gradient(170deg, #eef2fc 0%, #e7effb 55%, #e3edfb 100%);
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+
+  /* graph-paper grid overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    z-index: 1;
+  }
+
+  .stage { position: relative; z-index: 2; }
+
+  .screen {
+    display: none;
+    min-height: 100vh;
+    padding: 48px 32px;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .screen.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; }
+
+  /* ── WELCOME ── */
+  #welcome { display: none; place-items: center; text-align: center; }
+  #welcome.active { display: grid; }
+
+  .welcome-mark {
+    font-family: 'Caveat', cursive;
+    color: var(--hand);
+    letter-spacing: 1px;
+    font-size: 28px;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: slideUp 0.6s 0.1s forwards;
+  }
+
+  .welcome-title {
+    color: var(--ink);
+    font-family: 'Fraunces', 'Tajawal', serif;
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 800;
+    line-height: 1.08;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: slideUp 0.6s 0.3s forwards;
+  }
+
+  .welcome-title .highlight {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    background: linear-gradient(100deg, var(--hi-1) 0%, var(--hi-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .welcome-sub {
+    color: var(--ink-soft);
+    font-size: clamp(16px, 2.2vw, 22px);
+    font-weight: 400;
+    max-width: 720px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: slideUp 0.6s 0.5s forwards;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 44px;
+    background: var(--navy);
+    color: var(--cream);
+    border: none;
+    border-radius: 999px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow-strong);
+    transition: all 0.25s ease;
+    opacity: 0;
+    animation: slideUp 0.6s 0.7s forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--hi-1), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .cta:hover { transform: translateY(-3px); box-shadow: var(--shadow-strong), 0 0 0 4px rgba(154, 166, 232, 0.3); }
+  .cta:hover::after { opacity: 0.35; }
+  .cta span { position: relative; z-index: 1; }
+
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+  }
+  .orb-1 { width: 380px; height: 380px; background: var(--grad-cyan); top: 10%; left: -8%; opacity: 0.35; animation: float 8s ease-in-out infinite; }
+  .orb-2 { width: 280px; height: 280px; background: #b9a7f0; bottom: 5%; right: -5%; opacity: 0.32; animation: float 10s ease-in-out infinite reverse; }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -20px); }
+  }
+
+  .mascot {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 24px;
+    position: relative;
+    opacity: 0;
+    animation: slideUp 0.6s 0s forwards;
+  }
+  .mascot svg { width: 100%; height: 100%; filter: drop-shadow(0 12px 24px rgba(60,80,140,0.18)); }
+
+  /* ── HUB ── */
+  .hub-header { text-align: center; margin-bottom: 56px; padding-top: 24px; }
+  .hub-eyebrow { color: var(--hand); font-family: 'Caveat', cursive; letter-spacing: 1px; font-size: 26px; margin-bottom: 12px; text-transform: none; }
+  .hub-title { color: var(--ink); font-family: 'Fraunces', 'Tajawal', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 800; margin-bottom: 12px; }
+  .hub-sub { color: var(--ink-soft); font-size: 17px; max-width: 600px; margin: 0 auto; }
+
+  .category { margin-bottom: 56px; }
+  .category-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-right: 8px; }
+  .category-number { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 600; color: var(--emerald-light); font-style: italic; line-height: 1; opacity: 0.55; }
+  .category-title-block { flex: 1; }
+  .category-title { color: var(--ink); font-family: 'Fraunces', 'Tajawal', serif; font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+  .category-en { color: var(--hand); font-family: 'Caveat', cursive; font-size: 20px; letter-spacing: 0.5px; }
+  .category-line { flex: 1; height: 1px; background: linear-gradient(to left, transparent, rgba(140, 165, 220, 0.45)); }
+
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 26px 20px;
+    padding-top: 6px;
+  }
+
+  /* ── cute taped cards ── */
+  .topic-card {
+    background: var(--cream);
+    border-radius: 18px;
+    padding: 32px 22px 26px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: visible;
+    border: 1px solid rgba(140, 165, 220, 0.18);
+    text-align: center;
+    transform: rotate(-1.4deg);
+  }
+  .topic-card:nth-child(even) { transform: rotate(1.4deg); }
+
+  /* washi tape */
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 78px;
+    height: 24px;
+    transform: translateX(-50%) rotate(-6deg);
+    background: linear-gradient(135deg, rgba(150, 170, 232, 0.6), rgba(150, 200, 230, 0.5));
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(60, 70, 120, 0.12);
+    z-index: 2;
+  }
+
+  .topic-card:hover {
+    transform: rotate(0deg) translateY(-6px);
+    box-shadow: 0 22px 42px rgba(60, 80, 140, 0.2);
+    border-color: rgba(147, 150, 232, 0.5);
+  }
+
+  .topic-icon {
+    margin: 0 auto 10px;
+    font-size: 30px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .topic-name-ar { color: var(--ink); font-family: 'Fraunces', 'Tajawal', serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; position: relative; z-index: 1; }
+  .topic-name-en { color: var(--hand); font-family: 'Caveat', cursive; font-size: 19px; position: relative; z-index: 1; }
+  .topic-q-count { display: inline-block; margin-top: 12px; padding: 3px 12px; background: rgba(140, 165, 220, 0.16); border-radius: 999px; font-size: 12px; color: var(--emerald); font-weight: 500; position: relative; z-index: 1; }
+
+  /* ── TOPIC PAGE ── */
+  .topic-page { padding-bottom: 80px; }
+
+  .topic-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 12px 22px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(140, 165, 220, 0.3);
+    border-radius: 999px;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover { background: rgba(140, 165, 220, 0.2); color: var(--emerald); }
+  .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .nav-progress { color: var(--hand); font-family: 'Caveat', cursive; font-size: 20px; }
+
+  .topic-hero {
+    background: var(--cream);
+    border-radius: 28px;
+    padding: 48px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-strong);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .topic-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 240px;
+    height: 240px;
+    background: var(--hi-2);
+    border-radius: 50%;
+    opacity: 0.16;
+    filter: blur(40px);
+  }
+
+  .topic-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(140, 165, 220, 0.16);
+    color: var(--hand);
+    border-radius: 999px;
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .topic-title-ar { color: var(--ink); font-family: 'Fraunces', 'Tajawal', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; margin-bottom: 8px; position: relative; }
+  .topic-title-en { color: var(--emerald); font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(20px, 2.5vw, 28px); font-weight: 500; margin-bottom: 28px; position: relative; }
+
+  .section-label { color: var(--emerald-deep); font-size: 14px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; width: 24px; height: 2px; background: var(--hi-1); }
+
+  .rule-block {
+    background: var(--cream-soft);
+    border-right: 4px solid var(--emerald-light);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    line-height: 1.85;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .rule-block strong { color: var(--emerald-deep); font-weight: 700; }
+  .rule-block code, .ielts-tip code { background: var(--emerald-deep); color: var(--gold); padding: 2px 10px; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 14px; direction: ltr; display: inline-block; }
+
+  /* ── IELTS TIP ── */
+  .ielts-tip {
+    background: linear-gradient(135deg, rgba(140, 204, 229, 0.20), rgba(131, 129, 217, 0.14));
+    border: 1px solid rgba(131, 129, 217, 0.4);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+    line-height: 1.85;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .ielts-tip .ielts-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--emerald-deep);
+    color: var(--gold);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .ielts-tip strong { color: var(--emerald-deep); }
+
+  .rule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    background: var(--cream-soft);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(60,80,140,0.06);
+  }
+
+  .rule-table th { background: var(--emerald-deep); color: var(--gold); padding: 14px 16px; text-align: right; font-weight: 700; font-size: 14px; }
+  .rule-table td { padding: 14px 16px; border-top: 1px solid rgba(140, 165, 220, 0.18); color: var(--ink); font-size: 15px; line-height: 1.6; }
+  .rule-table tr:nth-child(even) td { background: rgba(140, 165, 220, 0.07); }
+
+  .examples { display: grid; gap: 12px; margin-bottom: 20px; }
+  .example-pill {
+    background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
+    color: var(--cream);
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 16px;
+    direction: ltr;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(60, 80, 140, 0.18);
+    position: relative;
+    padding-left: 50px;
+  }
+
+  .example-pill::before {
+    content: '✓';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background: var(--gold);
+    color: var(--emerald-deep);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 13px;
+  }
+
+  /* ── QUIZ ── */
+  .quiz-section {
+    background: var(--cream);
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: var(--shadow-strong);
+  }
+
+  .quiz-header { text-align: center; margin-bottom: 32px; }
+  .quiz-icon { width: 56px; height: 56px; background: var(--emerald-deep); color: var(--gold); border-radius: 18px; display: grid; place-items: center; margin: 0 auto 16px; font-size: 24px; }
+  .quiz-title { color: var(--ink); font-family: 'Fraunces', 'Tajawal', serif; font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .quiz-subtitle { color: var(--ink-soft); font-family: 'Caveat', cursive; font-size: 19px; }
+
+  .quiz-progress-bar { height: 6px; background: rgba(140, 165, 220, 0.16); border-radius: 999px; margin: 24px 0 32px; overflow: hidden; }
+  .quiz-progress-fill { height: 100%; background: linear-gradient(to right, var(--hi-1), var(--hi-2)); border-radius: 999px; transition: width 0.4s ease; }
+
+  .quiz-question { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px dashed rgba(140, 165, 220, 0.3); }
+  .quiz-question:last-of-type { border-bottom: none; }
+
+  .quiz-question-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; gap: 8px; flex-wrap: wrap; }
+  .quiz-question-num { font-family: 'Fraunces', serif; font-style: italic; color: var(--emerald); font-size: 14px; }
+
+  .quiz-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: var(--emerald-deep);
+    color: var(--gold);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .quiz-type-badge.err { background: var(--error); color: white; }
+  .quiz-type-badge.fill { background: var(--gold); color: var(--emerald-deep); }
+  .quiz-type-badge.tf { background: var(--emerald-light); color: white; }
+  .quiz-type-badge.match { background: #6b4d8a; color: white; }
+  .quiz-type-badge.chal { background: var(--navy); color: var(--gold); }
+
+  .quiz-question-text {
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .quiz-question-text .blank {
+    display: inline-block;
+    min-width: 80px;
+    border-bottom: 2px solid var(--emerald-light);
+    margin: 0 4px;
+    padding: 0 4px;
+    color: var(--emerald);
+    font-weight: 700;
+  }
+
+  .quiz-question-text .quoted {
+    display: block;
+    margin: 12px 0;
+    padding: 14px 20px;
+    background: var(--cream-soft);
+    border-right: 4px solid var(--emerald-light);
+    border-radius: 10px;
+    direction: ltr;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    color: var(--emerald-deep);
+  }
+
+  .quiz-question-text .err-sentence {
+    display: block;
+    margin: 12px 0;
+    padding: 14px 20px;
+    background: rgba(210, 96, 122, 0.10);
+    border-right: 4px solid var(--error);
+    border-radius: 10px;
+    direction: ltr;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--error);
+    font-weight: 500;
+  }
+
+  .quiz-options { display: grid; gap: 10px; }
+
+  .quiz-option {
+    background: var(--cream-soft);
+    border: 2px solid transparent;
+    padding: 14px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    direction: ltr;
+    text-align: left;
+  }
+
+  .quiz-option:hover:not(.locked) {
+    border-color: var(--emerald-light);
+    background: #fff;
+    transform: translateX(-3px);
+  }
+
+  .quiz-option-letter {
+    width: 28px;
+    height: 28px;
+    background: var(--emerald-deep);
+    color: var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Fraunces', serif;
+    flex-shrink: 0;
+  }
+
+  .quiz-option.correct {
+    background: rgba(47, 158, 122, 0.14);
+    border-color: var(--success);
+    color: var(--success);
+  }
+  .quiz-option.correct .quiz-option-letter { background: var(--success); color: white; }
+
+  .quiz-option.wrong {
+    background: rgba(210, 96, 122, 0.12);
+    border-color: var(--error);
+    color: var(--error);
+  }
+  .quiz-option.wrong .quiz-option-letter { background: var(--error); color: white; }
+
+  .quiz-option.locked { cursor: default; }
+
+  /* True/False special layout */
+  .tf-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tf-option {
+    padding: 22px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: var(--cream-soft);
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+  .tf-option:hover:not(.locked) { border-color: var(--emerald-light); background: #fff; transform: translateY(-2px); }
+  .tf-option.correct { background: rgba(47, 158, 122, 0.16); border-color: var(--success); color: var(--success); }
+  .tf-option.wrong { background: rgba(210, 96, 122, 0.13); border-color: var(--error); color: var(--error); }
+  .tf-option.locked { cursor: default; }
+  .tf-option .tf-icon { font-size: 28px; display: block; margin-bottom: 6px; }
+
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    display: none;
+    line-height: 1.7;
+  }
+  .quiz-feedback.show { display: block; animation: fadeIn 0.3s ease; }
+  .quiz-feedback.success { background: rgba(47, 158, 122, 0.10); color: var(--success); border-right: 3px solid var(--success); }
+  .quiz-feedback.failure { background: rgba(210, 96, 122, 0.10); color: var(--error); border-right: 3px solid var(--error); }
+  .quiz-feedback strong { font-weight: 700; }
+  .quiz-feedback .ltr-inline { direction: ltr; display: inline-block; font-family: 'DM Sans', sans-serif; }
+
+  .quiz-result { text-align: center; margin-top: 32px; padding: 28px; background: linear-gradient(135deg, var(--emerald-deep), var(--emerald)); border-radius: 20px; color: var(--cream); display: none; }
+  .quiz-result.show { display: block; animation: slideUp 0.4s ease; }
+  .quiz-result-score { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 600; color: var(--gold); margin-bottom: 8px; font-style: italic; }
+  .quiz-result-msg { font-size: 18px; margin-bottom: 18px; }
+
+  .restart-btn {
+    background: var(--gold);
+    color: var(--emerald-deep);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .restart-btn:hover { background: var(--gold-soft); transform: translateY(-2px); }
+
+  .topic-footer { margin-top: 40px; text-align: center; }
+  .topic-footer .cta { background: var(--emerald-light); color: #fff; animation: none; opacity: 1; }
+  .topic-footer .cta:hover { background: var(--emerald); }
+
+  .crest { width: 60px; height: 60px; margin: 0 auto 24px; color: var(--emerald-light); }
+
+  @media (max-width: 640px) {
+    .screen { padding: 24px 16px; }
+    .topic-hero { padding: 28px 22px; border-radius: 22px; }
+    .quiz-section { padding: 26px 20px; border-radius: 22px; }
+    .topic-grid { grid-template-columns: 1fr; }
+    .category-number { font-size: 48px; }
+    .rule-table { font-size: 13px; }
+    .rule-table th, .rule-table td { padding: 10px 12px; }
+    .topic-nav { padding: 10px 14px; flex-wrap: wrap; gap: 6px; }
+    .nav-btn { font-size: 13px; padding: 6px 12px; }
+    .tf-options { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- ═══ WELCOME ═══ -->
+  <section id="welcome" class="screen active">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="container">
+      <div class="mascot">
+        <svg viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bookGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#9aa6e8"/>
+              <stop offset="100%" stop-color="#93c5e0"/>
+            </linearGradient>
+          </defs>
+          <path d="M20 35 L65 25 L110 35 L110 95 L65 105 L20 95 Z" fill="url(#bookGrad)" stroke="#213050" stroke-width="2.5"/>
+          <path d="M65 25 L65 105" stroke="#213050" stroke-width="2"/>
+          <path d="M30 45 L60 38" stroke="#213050" stroke-width="1.5" opacity="0.6"/>
+          <path d="M30 55 L60 48" stroke="#213050" stroke-width="1.5" opacity="0.6"/>
+          <path d="M30 65 L60 58" stroke="#213050" stroke-width="1.5" opacity="0.6"/>
+          <path d="M70 38 L100 45" stroke="#213050" stroke-width="1.5" opacity="0.6"/>
+          <path d="M70 48 L100 55" stroke="#213050" stroke-width="1.5" opacity="0.6"/>
+          <path d="M70 58 L100 65" stroke="#213050" stroke-width="1.5" opacity="0.6"/>
+          <path d="M65 18 L67.5 13 L70 18 L75 16 L72 21 L77 22 L72 24 L75 29 L70 27 L65 32 L60 27 L55 29 L58 24 L53 22 L58 21 L55 16 L60 18 L62.5 13 Z" fill="#93c5e0" opacity="0.9"/>
+        </svg>
+      </div>
+
+      <p class="welcome-mark">a self-learning journal</p>
+      <h1 class="welcome-title">
+        أهلاً بك في كورس<br>
+        <span class="highlight">قواعد الآيلتس</span>
+      </h1>
+      <p class="welcome-sub">
+        قواعد منظّمة من الأسهل للأصعب · أمثلة وتمارين على نمط الآيلتس<br>
+        اختيار من متعدد، صح أو خطأ، تصحيح أخطاء، أكمل الجملة، طابق
+      </p>
+      <button class="cta" onclick="show('hub')">
+        <span>يلا ابدأ</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══ HUB ═══ -->
+  <section id="hub" class="screen">
+    <div class="container">
+      <div class="hub-header">
+        <p class="hub-eyebrow">your IELTS grammar map</p>
+        <h1 class="hub-title">قائمة المواضيع</h1>
+        <p class="hub-sub">المواضيع مرتبة من الأساس إلى الإتقان. ابدأ من فوق وامشِ بالترتيب، وكل موضوع فيه نصيحة آيلتس.</p>
+      </div>
+      <div id="hub-categories"></div>
+      <div style="text-align:center; margin-top: 56px; padding-top: 32px; border-top: 1px solid rgba(140,165,220,0.3);">
+        <button class="nav-btn" onclick="show('welcome')" style="color: var(--emerald);">العودة للبداية</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TOPIC PAGE ═══ -->
+  <section id="topic-page" class="screen">
+    <div class="container topic-page">
+      <div class="topic-nav">
+        <button class="nav-btn" onclick="show('hub')">القائمة</button>
+        <span class="nav-progress" id="topic-progress"></span>
+        <button class="nav-btn" id="next-topic-btn" onclick="nextTopic()">الموضوع التالي</button>
+      </div>
+
+      <div class="topic-hero" id="topic-hero"></div>
+      <div class="quiz-section" id="quiz-section"></div>
+
+      <div class="topic-footer">
+        <button class="cta" onclick="show('hub')"><span>العودة للقائمة</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPLETION ═══ -->
+  <section id="completion" class="screen">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="container" style="text-align:center; padding-top: 40px;">
+      <svg class="crest" viewBox="0 0 60 60" fill="none">
+        <path d="M30 5 L36 22 L54 22 L40 33 L46 50 L30 40 L14 50 L20 33 L6 22 L24 22 Z" fill="currentColor"/>
+      </svg>
+      <p class="welcome-mark">certificate of completion</p>
+      <h1 class="welcome-title">أحسنت!<br><span class="highlight">رحلة موفقة</span></h1>
+      <p class="welcome-sub">أكملت كل مواضيع قواعد الآيلتس. الآن طبّق هذه القواعد في الكتابة (Writing) والمحادثة (Speaking) وراح ترفع درجتك (Band) بإذن الله.</p>
+      <button class="cta" onclick="show('hub')"><span>تصفح القائمة مرة ثانية</span></button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ═════════════════════════════════════════
+   Quiz question types:
+   - mc:    multiple choice
+   - tf:    true/false (sentence is correct or not)
+   - err:   error correction (pick the corrected version)
+   - fill:  fill in the blank (pick the missing word)
+   - match: match item with answer (rendered as MC)
+   - chal:  challenge / advanced
+   ═════════════════════════════════════════ */
+
+const COURSE = {
+  categories: [
+    { id: 'foundations',  titleAr: 'الأساسيات', titleEn: 'Foundations', topics: ['be-pres', 'was-were', 'pronouns'] },
+    { id: 'aux',          titleAr: 'الأفعال المساعدة', titleEn: 'Auxiliary Verbs', topics: ['do-does', 'did'] },
+    { id: 'tenses',       titleAr: 'الأزمنة', titleEn: 'Tenses', topics: ['present-simple', 'present-cont', 'past-simple', 'past-cont', 'present-perfect', 'past-perfect', 'future-simple', 'tense-tracks'] },
+    { id: 'sentence',     titleAr: 'بناء الجمل', titleEn: 'Sentence Structure', topics: ['sentence-types', 'if-conditions', 'relative-clauses', 'time-connectors', 'linking-words'] },
+    { id: 'nouns',        titleAr: 'الأسماء وأدوات التعريف', titleEn: 'Articles & Nouns', topics: ['articles', 'quantifiers', 'plurals-agreement'] },
+    { id: 'prepositions', titleAr: 'حروف الجر', titleEn: 'Prepositions', topics: ['prepositions'] },
+    { id: 'forms',        titleAr: 'الصيغ والمقارنة', titleEn: 'Voice, Modals & Comparison', topics: ['passive', 'modals', 'comparison'] },
+    { id: 'practice',     titleAr: 'التدريب على الآيلتس', titleEn: 'IELTS Practice', topics: ['step-exam'] }
+  ],
+
+  topics: {
+    /* ────────── FOUNDATIONS ────────── */
+    'be-pres': {
+      icon: 'B',
+      titleAr: 'Verb "Be" — am / is / are',
+      titleEn: 'The verb to be in present',
+      tagline: 'فعل الكينونة في المضارع',
+      rules: [
+        { type: 'text', html: 'فعل <code>Be</code> هو أهم فعل في الإنجليزية. له ثلاث صيغ في المضارع حسب الفاعل:' },
+        { type: 'table', headers: ['Subject (الفاعل)', 'Verb "Be"', 'Example'], rows: [
+          ['I', 'am', 'I am happy.'],
+          ['He / She / It', 'is', 'She is a teacher.'],
+          ['You / We / They', 'are', 'They are students.']
+        ]}
+      ],
+      examples: ["I am happy.", "She is a teacher.", "They are students."],
+      quiz: [
+        { type:'mc', q:'He ____ a good friend.', opts:['am','are','is','be'], answer:2 },
+        { type:'mc', q:'We ____ late for class.', opts:['is','are','am','be'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['I is tired.','They am here.','She are busy.','You are kind.'], answer:3 },
+        { type:'err', sentence:'He are a doctor.', opts:['He is a doctor.','He am a doctor.','He be a doctor.','He are doctor.'], answer:0, note:'الخطأ في كلمة <strong>are</strong>: He → is' },
+        { type:'err', sentence:'I is excited.', opts:['I are excited.','I am excited.','I be excited.','I excited.'], answer:1, note:'الخطأ: I دائمًا تأخذ <strong>am</strong>' },
+        { type:'fill', q:'I ___ from Saudi Arabia.', opts:['am','is','are','be'], answer:0 },
+        { type:'fill', q:'She ___ my best friend.', opts:['am','is','are','be'], answer:1 },
+        { type:'fill', q:'We ___ ready.', opts:['am','is','are','be'], answer:2 },
+        { type:'fill', q:'It ___ very hot today.', opts:['am','is','are','be'], answer:1 },
+        { type:'fill', q:'You ___ my teacher.', opts:['am','is','are','be'], answer:2 }
+      ]
+    },
+
+    'was-were': {
+      icon: 'W',
+      titleAr: 'Was / Were',
+      titleEn: 'Past simple of "Be"',
+      tagline: 'فعل الكينونة في الماضي',
+      rules: [
+        { type: 'text', html: 'لما نتكلم عن الماضي، فعل <code>Be</code> يصير <code>was</code> أو <code>were</code>.' },
+        { type: 'table', headers: ['Subject', 'Verb', 'Example'], rows: [
+          ['I / He / She / It', 'was', 'I was tired yesterday.'],
+          ['You / We / They', 'were', 'They were happy last week.']
+        ]},
+        { type: 'text', html: 'نستخدمها لوصف الحالة في الماضي وفي الأسئلة والنفي: <code>Was she at the party?</code> · <code>We were not ready.</code>' }
+      ],
+      examples: ["I was tired yesterday.", "They were happy last week.", "Was she at the party?", "Were you absent?"],
+      quiz: [
+        { type:'mc', q:'"She _____ very kind to me."', opts:['were','are','was','be'], answer:2 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['You was late.','He were tired.','I was hungry.','They was gone.'], answer:2 },
+        { type:'mc', q:'"_____ they in class yesterday?"', opts:['Was','Are','Is','Were'], answer:3 },
+        { type:'err', sentence:'She were very helpful.', opts:['She was very helpful.','She is very helpful.','She are very helpful.','She be very helpful.'], answer:0, note:'الخطأ: <strong>were</strong>. She مفرد → was' },
+        { type:'err', sentence:'We was at home all night.', opts:['We were at home all night.','We is at home all night.','We are at home all night.','We be at home all night.'], answer:0, note:'الخطأ: <strong>was</strong>. We جمع → were' },
+        { type:'err', sentence:'Was they your classmates?', opts:['Were they your classmates?','Is they your classmates?','Are they your classmates?','Did they your classmates?'], answer:0, note:'الخطأ: <strong>was</strong>. They جمع → were' },
+        { type:'fill', q:'I _____ in Riyadh last week.', opts:['was','were','am','is'], answer:0 },
+        { type:'fill', q:'They _____ not happy with the results.', opts:['was','were','are','is'], answer:1 },
+        { type:'fill', q:'_____ she at school yesterday?', opts:['Were','Was','Did','Is'], answer:1 },
+        { type:'fill', q:'We _____ at the café when you called.', opts:['was','were','are','is'], answer:1 },
+        { type:'fill', q:'He _____ busy all day.', opts:['was','were','is','are'], answer:0 },
+        { type:'chal', q:'Which sentence is correct in the past?', opts:['They are at the mall yesterday.','He was tired last night.','She were sick on Monday.','I am happy yesterday.'], answer:1, note:'B هي الصحيحة زمنيًا: He was tired last night.' }
+      ]
+    },
+
+    'pronouns': {
+      icon: 'P',
+      titleAr: 'Pronouns',
+      titleEn: 'Subject · Object · Possessive · Reflexive',
+      tagline: 'الضمائر',
+      rules: [
+        { type: 'table', headers: ['Type', 'Examples', 'Usage'], rows: [
+          ['Subject', 'I, He, She, It, We, You, They', 'قبل الفعل: He plays football.'],
+          ['Object', 'Me, Him, Her, It, Us, You, Them', 'بعد الفعل: I played with him.'],
+          ['Possessive Adj.', 'My, His, Her, Its, Our, Your, Their', 'قبل الاسم: My car is nice.'],
+          ['Possessive Pron.', 'Mine, His, Hers, Ours, Yours, Theirs', 'بدون اسم: This car is mine.'],
+          ['Reflexive', 'Myself, Himself, Herself, Itself, Ourselves, Yourselves, Themselves', 'يعود على الفاعل: He hurt himself.']
+        ]},
+        { type: 'text', html: '<strong>ملاحظة:</strong> بعد الأفعال <code>cut, hurt, help, tell, introduce, blame, ask</code> نستخدم الضمير المنعكس إذا كان الفاعل والمفعول نفس الشخص.' }
+      ],
+      examples: ["He plays football.", "I played with him.", "This car is mine.", "He introduced himself."],
+      quiz: [
+        { type:'mc', q:'I saw Sarah and I talked to ___.', opts:['she','her','hers','herself'], answer:1 },
+        { type:'mc', q:'Which sentence uses a reflexive pronoun correctly?', opts:['He washed hisself.','He washed himself.','He washed him.','He washed he.'], answer:1 },
+        { type:'mc', q:'"This pen belongs to me. It\'s ____."', opts:['my','mine','me','myself'], answer:1 },
+        { type:'mc', q:'___ is my best friend.', opts:['Me','Mine','I','Myself'], answer:2 },
+        { type:'fill', q:'My sister\'s name is Anna. ___ is eight years old.', opts:['He','Him','She','Her'], answer:2 },
+        { type:'fill', q:'I gave the book to ___.', opts:['she','her','hers','herself'], answer:1 },
+        { type:'fill', q:'We made the cake ___.', opts:['ourself','ourselves','us','our'], answer:1 }
+      ]
+    },
+
+    /* ────────── AUXILIARY VERBS ────────── */
+    'do-does': {
+      icon: 'D',
+      titleAr: 'Do / Does',
+      titleEn: 'Auxiliary verbs in questions & negatives',
+      tagline: 'استخدامات في الأسئلة والنفي',
+      rules: [
+        { type: 'text', html: 'نستخدم <code>do / does</code> لتكوين الأسئلة والنفي في زمن المضارع البسيط.' },
+        { type: 'table', headers: ['Subject', 'Auxiliary', 'Question', 'Negative'], rows: [
+          ['I / You / We / They', 'do', 'Do you like tea?', "I do not like tea."],
+          ['He / She / It', 'does', 'Does he play football?', "She does not play football."]
+        ]},
+        { type: 'text', html: '<strong>ملاحظات:</strong> بعد do / does نستخدم الفعل في صورته الأصلية بدون <code>s</code> أو <code>ing</code>. وفي النفي: <code>don\'t</code> = do not، و<code>doesn\'t</code> = does not.' }
+      ],
+      examples: ["Do you like tea?", "Does she speak English?", "They don't like sushi.", "He doesn't go to the gym."],
+      quiz: [
+        { type:'mc', q:'Which sentence is correct?', opts:['He do plays football.','She does play football.','She does plays football.','He do playing football.'], answer:1 },
+        { type:'mc', q:'Choose the correct question form:', opts:['Do she like pizza?','Does she likes pizza?','Does she like pizza?','Do she likes pizza?'], answer:2 },
+        { type:'mc', q:'"They _____ like homework." (negative)', opts:['does not','do not','do no','does no'], answer:1 },
+        { type:'err', sentence:'Does he goes to school every day?', opts:['Does he go to school every day?','Do he goes to school every day?','Does he going to school every day?','Sentence is correct.'], answer:0, note:'الخطأ: <strong>goes</strong>. بعد does نستخدم المصدر → go' },
+        { type:'err', sentence:'She don\'t like ice cream.', opts:['She doesn\'t like ice cream.','She not likes ice cream.','She don\'t likes ice cream.','She no like ice cream.'], answer:0, note:'الخطأ: <strong>don\'t</strong>. She مفرد → doesn\'t' },
+        { type:'fill', q:'_____ you live near here?', opts:['Do','Does','Did','Are'], answer:0 },
+        { type:'fill', q:'_____ she speak English?', opts:['Do','Does','Did','Is'], answer:1 },
+        { type:'fill', q:'They _____ like sushi. (negative)', opts:['don\'t','doesn\'t','isn\'t','aren\'t'], answer:0 },
+        { type:'fill', q:'He _____ go to the gym. (negative)', opts:['don\'t','doesn\'t','isn\'t','aren\'t'], answer:1 },
+        { type:'fill', q:'What _____ they eat for lunch?', opts:['do','does','is','are'], answer:0 },
+        { type:'chal', q:'She ___ ice cream.', opts:['like','likes','liked','liking'], answer:1 },
+        { type:'chal', q:'Does she ___ chocolate?', opts:['likes','like','liked','liking'], answer:1, note:'بعد does نستخدم المصدر → like' },
+        { type:'chal', q:'She doesn\'t ___ tea.', opts:['likes','like','liking','liked'], answer:1, note:'بعد doesn\'t نستخدم المصدر → like' }
+      ]
+    },
+
+    'did': {
+      icon: 'D',
+      titleAr: 'Did',
+      titleEn: 'Past Simple — questions & negatives',
+      tagline: 'الفعل المساعد في الماضي البسيط',
+      rules: [
+        { type: 'text', html: 'نستخدم <code>did</code> للسؤال والنفي في زمن الماضي البسيط — مع جميع الضمائر. وبعد did نستخدم الفعل في صيغة المصدر (بدون <code>ed</code>).' },
+        { type: 'table', headers: ['Form', 'Structure', 'Example'], rows: [
+          ['سؤال', 'Did + subject + verb?', 'Did she call you?'],
+          ['نفي', "Subject + didn't + verb", "He didn't go to school."]
+        ]},
+        { type: 'text', html: '<strong>تنبيه مهم:</strong> ❌ Did he played? &nbsp;&nbsp; ✅ Did he play?' }
+      ],
+      examples: ["Did she call you?", "He didn't go to school.", "What did they say?", "Where did you go?"],
+      quiz: [
+        { type:'mc', q:'Choose the correct question form:', opts:['Did she called you?','Did she call you?','Did she calling you?','Did she calls you?'], answer:1 },
+        { type:'mc', q:'Choose the correct negative form:', opts:["He didn't went to school.","He didn't go to school.","He doesn't went to school.","He didn't goes to school."], answer:1 },
+        { type:'mc', q:'"______ they enjoy the trip?"', opts:['Does','Did','Do','Doing'], answer:1 },
+        { type:'err', sentence:'She didn\'t went to the party.', opts:["She didn't go to the party.","She doesn't went to the party.","She didn't going to the party.","She didn't goes to the party."], answer:0, note:'الخطأ: <strong>went</strong>. بعد didn\'t نستخدم المصدر → go' },
+        { type:'err', sentence:'Did you saw that movie?', opts:['Did you see that movie?','Did you saw the movie?','Do you saw that movie?','Were you saw that movie?'], answer:0, note:'الخطأ: <strong>saw</strong>. بعد did نستخدم المصدر → see' },
+        { type:'err', sentence:'They doesn\'t like the trip yesterday.', opts:["They didn't like the trip yesterday.","They don't like the trip yesterday.","They didn't liked the trip yesterday.","They aren't like the trip yesterday."], answer:0, note:'الخطأ: <strong>doesn\'t</strong>. الجملة في الماضي → didn\'t' },
+        { type:'fill', q:'______ she visit her grandmother?', opts:['Do','Does','Did','Was'], answer:2 },
+        { type:'fill', q:'I ______ understand the question.', opts:["don't","doesn't","didn't","wasn't"], answer:2 },
+        { type:'fill', q:'What ______ they eat for lunch?', opts:['do','does','did','were'], answer:2 },
+        { type:'fill', q:'He ______ call me yesterday. (negative)', opts:["don't","doesn't","didn't","wasn't"], answer:2 },
+        { type:'fill', q:'Where ______ you go last weekend?', opts:['do','does','did','were'], answer:2 },
+        { type:'match', q:'Choose the right answer for: "Did she finish the report?"', opts:["No, she didn't.","No, she don't.","No, she doesn't.","No, she isn't."], answer:0 },
+        { type:'match', q:'Choose the right answer for: "Did you enjoy the show?"', opts:['Yes, I do.','Yes, I am.','Yes, I did.','Yes, I was.'], answer:2 },
+        { type:'chal', q:'Did he _____ ?', opts:['arrived','arrive','arriving','arrives'], answer:1 },
+        { type:'chal', q:'She didn\'t _____ the food.', opts:['liked','like','liking','likes'], answer:1 },
+        { type:'chal', q:'What did you _____ ?', opts:['do','did','doing','done'], answer:0 }
+      ]
+    },
+
+    /* ────────── TENSES ────────── */
+    'present-simple': {
+      icon: 'P',
+      titleAr: 'Present Simple',
+      titleEn: 'The simple present tense',
+      tagline: 'المضارع البسيط',
+      rules: [
+        { type: 'text', html: 'يستخدم للتعبير عن <strong>الحقائق العامة</strong> والأشياء التي تحدث <strong>بانتظام</strong>.' },
+        { type: 'table', headers: ['Subject', 'Verb form', 'Example'], rows: [
+          ['I / We / You / They', 'الفعل بدون إضافة', 'They play football.'],
+          ['He / She / It', 'الفعل + s', 'She plays football.']
+        ]},
+        { type: 'text', html: '<strong>الكلمات الدالة:</strong> always, every day, never, often, sometimes, usually, regularly.' }
+      ],
+      examples: ["He speaks English.", "I always play football on Friday.", "She works at a bank."],
+      quiz: [
+        { type:'fill', q:'"She __________ to school every day."', opts:['go','goes','going','gone'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['I always eats breakfast in the morning.','I always eat breakfast in the morning.','I always eating breakfast in the morning.','I always eaten breakfast in the morning.'], answer:1 },
+        { type:'mc', q:'Select the correct present simple sentence:', opts:['They goes to the gym every morning.','They going to the gym every morning.','They go to the gym every morning.','They gone to the gym every morning.'], answer:2 },
+        { type:'fill', q:'"She __________ to the park every Saturday."', opts:['go','goes','going','gone'], answer:1 },
+        { type:'mc', q:'Which of the following sentences is correct?', opts:['They eats lunch at 12:00 PM.','They eat lunch at 12:00 PM.','They eating lunch at 12:00 PM.','They ate lunch at 12:00 PM.'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['I always drink coffee in the morning.','I always drinks coffee in the morning.','I always drinking coffee in the morning.','I always drunk coffee in the morning.'], answer:0 },
+        { type:'fill', q:'"He __________ to school by bus."', opts:['go','goes','gone','going'], answer:1 },
+        { type:'fill', q:'"My friends __________ to the cinema every weekend."', opts:['goes','gone','go','going'], answer:2 },
+        { type:'fill', q:'"I __________ my homework every evening."', opts:['does','do','did','doing'], answer:1 },
+        { type:'mc', q:'Which sentence is correct?', opts:['She never goes to bed late.','She never go to bed late.','She never going to bed late.','She never gone to bed late.'], answer:0 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['They plays football every Saturday.','They play football every Saturday.','They played football every Saturday.','They playing football every Saturday.'], answer:1 },
+        { type:'fill', q:'"I __________ my grandmother on Sundays."', opts:['visit','visits','visited','visiting'], answer:0 },
+        { type:'mc', q:'Which is the correct present simple sentence?', opts:['He never play football.','He never plays football.','He never played football.','He never playing football.'], answer:1 },
+        { type:'fill', q:'"She __________ a book every night before bed."', opts:['read','reads','reading','readed'], answer:1 },
+        { type:'fill', q:'"My parents __________ to work by car."', opts:['drive','drives','driving','driven'], answer:0 },
+        { type:'fill', q:'"They __________ coffee at the café every morning."', opts:['drink','drinks','drinking','drunk'], answer:0 },
+        { type:'mc', q:'What is the correct sentence?', opts:['He always brush his teeth before bed.','He always brushes his teeth before bed.','He always brushed his teeth before bed.','He always brushing his teeth before bed.'], answer:1 },
+        { type:'mc', q:'Which sentence is correct?', opts:['She never go to the gym.','She never goes to the gym.','She never gone to the gym.','She never going to the gym.'], answer:1 }
+      ]
+    },
+
+    'present-cont': {
+      icon: 'P',
+      titleAr: 'Present Continuous',
+      titleEn: 'The present continuous tense',
+      tagline: 'المضارع المستمر',
+      rules: [
+        { type: 'table', headers: ['Subject', 'Structure', 'Example'], rows: [
+          ['I', 'am + verb-ing', 'I am playing now.'],
+          ['He / She / It', 'is + verb-ing', 'He is speaking.'],
+          ['You / We / They', 'are + verb-ing', 'We are eating at the moment.']
+        ]},
+        { type: 'text', html: '<strong>الكلمات الدالة:</strong> at the moment, now, these days, tonight, today, right now.' }
+      ],
+      examples: ["I am playing now.", "He is speaking.", "We are eating at the moment."],
+      quiz: [
+        { type:'mc', q:'Choose the correct sentence:', opts:['She am working at the moment.','She is working at the moment.','She are working at the moment.','She be working at the moment.'], answer:1 },
+        { type:'mc', q:'Which of the following is correct?', opts:['I am study English now.','I is studying English now.','I are studying English now.','I am studying English now.'], answer:3 },
+        { type:'fill', q:'"They __________ right now."', opts:['are play','are playing','is playing','am playing'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['We is eating lunch right now.','We are eating lunch right now.','We are eat lunch right now.','We eats lunch right now.'], answer:1 },
+        { type:'mc', q:'Which sentence is in the present continuous tense?', opts:['He is talk to his friend now.','He is talking to his friend now.','He talks to his friend now.','He talked to his friend now.'], answer:1 },
+        { type:'fill', q:'"I __________ to the park today."', opts:['am going','is going','are going','goes'], answer:0 },
+        { type:'mc', q:'Which is the correct present continuous sentence?', opts:['They are listen to music now.','They are listening to music now.','They is listening to music now.','They listens to music now.'], answer:1 },
+        { type:'fill', q:'"We __________ a meeting at the moment."', opts:['is having','are having','am having','have'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['He am playing football now.','He is playing football now.','He are playing football now.','He playing football now.'], answer:1 },
+        { type:'mc', q:'Which is in present continuous?', opts:['They are studying these days.','They are study these days.','They studied these days.','They will study these days.'], answer:0 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['I am reading now.','I are reading now.','I is reading now.','I reading now.'], answer:0 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['He are eating at the moment.','He is eating at the moment.','He eating at the moment.','He are eating at this moment.'], answer:1 },
+        { type:'mc', q:'Which is correct?', opts:['We are learn English at the moment.','We are learning English at the moment.','We learning English at the moment.','We is learning English at the moment.'], answer:1 },
+        { type:'fill', q:'"She __________ a book right now."', opts:['is reading','are reading','am reading','reading'], answer:0 },
+        { type:'mc', q:'Which sentence is in present continuous?', opts:['I am working on my project now.','I work on my project now.','I worked on my project now.','I works on my project now.'], answer:0 }
+      ]
+    },
+
+    'past-simple': {
+      icon: 'P',
+      titleAr: 'Past Simple',
+      titleEn: 'The simple past tense',
+      tagline: 'الماضي البسيط',
+      rules: [
+        { type: 'text', html: 'نستخدمه لأفعال انتهت في الماضي. الفعل المنتظم: نضيف <code>ed</code>. والشاذ يأخذ شكل خاص: go → went, eat → ate, see → saw.' },
+        { type: 'text', html: '<strong>الكلمات الدالة:</strong> yesterday, last week, ago, in 2019.' }
+      ],
+      examples: ["I visited the museum yesterday.", "She watched the movie last night.", "He went to the party."],
+      quiz: [
+        { type:'mc', q:'Choose the correct sentence:', opts:['I visited the park yesterday.','I visit the park yesterday.','I visiting the park yesterday.','I visits the park yesterday.'], answer:0 },
+        { type:'fill', q:'"He __________ to the party last night."', opts:['go','went','goes','going'], answer:1 },
+        { type:'mc', q:'Which is correct?', opts:['She studied for the exam yesterday.','She study for the exam yesterday.','She studies for the exam yesterday.','She studied for the exam every day.'], answer:0 },
+        { type:'fill', q:'"They __________ a movie last weekend."', opts:['watch','watches','watched','watching'], answer:2 },
+        { type:'mc', q:'Choose the correct sentence:', opts:["I didn't went to the store yesterday.","I didn't go to the store yesterday.","I not go to the store yesterday.","I didn't going to the store yesterday."], answer:1 },
+        { type:'mc', q:'Which is correct?', opts:['We played football last Saturday.','We play football last Saturday.','We plays football last Saturday.','We played football now.'], answer:0 },
+        { type:'fill', q:'"They __________ the car last week."', opts:['fix','fixing','fixed','fixes'], answer:2 },
+        { type:'fill', q:'"I __________ a new book last month."', opts:['buy','bought','buys','buying'], answer:1 },
+        { type:'mc', q:'Which sentence is correct?', opts:['He didn\'t studied for the test yesterday.','He didn\'t study for the test yesterday.','He didn\'t study for the test last week.','He didn\'t studied for the test last week.'], answer:1, note:'(B) و (C) كلاهما ممكن، لكن (B) الأنسب لأن "yesterday" أكثر شيوعًا في هذا السياق.' },
+        { type:'mc', q:'Which is correct?', opts:['She arrive last night.','She arrives last night.','She arrived last night.','She arrived yesterday night.'], answer:2 },
+        { type:'fill', q:'"I __________ my homework last night."', opts:['finish','finished','finishing','finishes'], answer:1 },
+        { type:'mc', q:'Which is correct in past simple?', opts:["They doesn't work yesterday.","They don't work yesterday.","They didn't work yesterday.","They doesn't works yesterday."], answer:2 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['We enjoyed the party yesterday.','We enjoy the party yesterday.','We enjoys the party yesterday.','We enjoying the party yesterday.'], answer:0 },
+        { type:'fill', q:'"I __________ a letter yesterday."', opts:['write','writes','wrote','written'], answer:2 },
+        { type:'mc', q:'Which is correct?', opts:['I met with her last Friday.','I meets with her last Friday.','I meet with her last Friday.','I meet with her on last Friday.'], answer:0 }
+      ]
+    },
+
+    'past-cont': {
+      icon: 'P',
+      titleAr: 'Past Continuous',
+      titleEn: 'The past continuous tense',
+      tagline: 'الماضي المستمر',
+      rules: [
+        { type: 'table', headers: ['Subject', 'Structure', 'Example'], rows: [
+          ['I, He, She, It', 'was + verb-ing', 'He was speaking.'],
+          ['We, You, They', 'were + verb-ing', 'They were eating.']
+        ]},
+        { type: 'text', html: '<strong>الكلمات الدالة:</strong> when, while.' }
+      ],
+      examples: ["He was speaking.", "While we were eating our lunch, my father came.", "I was reading when the phone rang."],
+      quiz: [
+        { type:'mc', q:'Choose the correct sentence:', opts:['I was reading a book when my friend called.','I were reading a book when my friend called.','I am reading a book when my friend called.','I reading a book when my friend called.'], answer:0 },
+        { type:'fill', q:'"He __________ when I arrived."', opts:['was working','is working','were working','works'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['She were eating when the phone rang.','She was eating when the phone rang.','She eating when the phone rang.','She is eating when the phone rang.'], answer:1 },
+        { type:'fill', q:'"They __________ at 8 PM last night."', opts:['was watching','were watching','are watching','watch'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['We were studying when the teacher entered the room.','We was studying when the teacher entered the room.','We study when the teacher entered the room.','We studied when the teacher entered the room.'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['I was going to the market when I saw her.','I were going to the market when I saw her.','I am going to the market when I saw her.','I goes to the market when I saw her.'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['They were playing when it started to rain.','They is playing when it started to rain.','They were play when it started to rain.','They played when it started to rain.'], answer:0 },
+        { type:'fill', q:'"She __________ to music when I called."', opts:['was listening','is listening','were listening','listens'], answer:0 },
+        { type:'mc', q:'Which sentence is in past continuous?', opts:['I was talking to my friend when the alarm rang.','I talk to my friend when the alarm rang.','I am talking to my friend when the alarm rang.','I talked to my friend when the alarm rang.'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['While we was having dinner, the lights went out.','While we were having dinner, the lights went out.','While we having dinner, the lights went out.','While we are having dinner, the lights went out.'], answer:1 },
+        { type:'mc', q:'Which is correct?', opts:['He was playing football while I was studying.','He were playing football while I was studying.','He play football while I was studying.','He plays football while I was studying.'], answer:0 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['While I was reading, my brother was watching TV.','While I read, my brother was watching TV.','While I am reading, my brother watched TV.','While I read, my brother watch TV.'], answer:0 },
+        { type:'fill', q:'"They __________ when I left."', opts:['were talking','is talking','were talk','talks'], answer:0 },
+        { type:'mc', q:'Which is in past continuous?', opts:['She was walking to the store when it started to rain.','She walks to the store when it started to rain.','She is walking to the store when it started to rain.','She walk to the store when it started to rain.'], answer:0 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['While I was cooking, the phone rang.','While I cooking, the phone rang.','While I cook, the phone rang.','While I am cooking, the phone rang.'], answer:0 }
+      ]
+    },
+
+    'present-perfect': {
+      icon: 'P',
+      titleAr: 'Present Perfect',
+      titleEn: 'The present perfect tense',
+      tagline: 'المضارع التام',
+      rules: [
+        { type: 'table', headers: ['Subject', 'Structure', 'Example'], rows: [
+          ['I / We / You / They', 'have + V3', 'They have spoken.'],
+          ['He / She / It', 'has + V3', 'He has played football.']
+        ]},
+        { type: 'text', html: '<strong>الكلمات الدالة:</strong> already, ever, just, lately, yet, so far, once, twice, ... times.' }
+      ],
+      examples: ["He has spoken.", "He has already played football.", "I have just arrived."],
+      quiz: [
+        { type:'mc', q:'Choose the correct sentence:', opts:['She has written a letter.','She have written a letter.','She has write a letter.','She wrote a letter.'], answer:0 },
+        { type:'fill', q:'"I __________ this movie before."', opts:['saw','see','have seen','seen'], answer:2 },
+        { type:'mc', q:'Which is correct?', opts:['They have finished their homework yet.','They have finished their homework just.','They finished their homework yet.','They have finished their homework.'], answer:3 },
+        { type:'fill', q:'"He __________ already eaten lunch."', opts:['has','have','is','was'], answer:0 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['I have just arrived at the airport.','I have just arrived to the airport.','I have arrived just at the airport.','I just have arrived at the airport.'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['She has gone to the market yesterday.','She has gone to the market now.','She went to the market.','She has gone to the market.'], answer:3 },
+        { type:'mc', q:'Which is correct?', opts:['They have never visit this museum.','They have never visited this museum.','They never visited this museum.','They never have visited this museum.'], answer:1 },
+        { type:'fill', q:'"I __________ to the park several times."', opts:['have gone','have went','go','gone'], answer:0 },
+        { type:'mc', q:'Which sentence is in the present perfect?', opts:['He has been to London.','He is been to London.','He was to London.','He have been to London.'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['I have never see that movie before.','I have never seen that movie before.','I never have seen that movie before.','I never seen that movie before.'], answer:1 },
+        { type:'mc', q:'Which is correct?', opts:['We have already ate lunch.','We have eaten lunch already.','We ate lunch already.','We have eaten already lunch.'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['She has already done her homework.','She already has done her homework.','She done already her homework.','She has did her homework already.'], answer:0 },
+        { type:'fill', q:'"I __________ to Paris several times."', opts:['have gone','gone','have went','went'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['They have finished their work just.','They have just finished their work.','They finished just their work.','They just have finished their work.'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['I have known him for two years.','I know him for two years.','I have know him for two years.','I knew him for two years.'], answer:0 }
+      ]
+    },
+
+    'past-perfect': {
+      icon: 'P',
+      titleAr: 'Past Perfect',
+      titleEn: 'The past perfect tense',
+      tagline: 'الماضي التام',
+      rules: [
+        { type: 'text', html: 'الصيغة: <code>Subject + had + V3</code>. نستخدمه لتوضيح أن حدثًا وقع <strong>قبل</strong> حدث آخر في الماضي.' },
+        { type: 'text', html: '📝 مثال: <em>Chris found the exam easy because his teacher had told him everything he needed.</em> &nbsp; (had told ← وقع أولًا، ثم found)' }
+      ],
+      examples: ["He had finished his work before dinner.", "By the time we got to the airport, the plane had left.", "After he had left, I started cleaning."],
+      quiz: [
+        { type:'mc', q:'Which sentence is in the past perfect tense?', opts:['He speaks well.','He had finished his work before dinner.','He is eating now.','He finishes his work.'], answer:1 },
+        { type:'fill', q:'"She ____ before I arrived."', opts:['leaves','had left','is leaving','was leaving'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence using the past perfect:', opts:['They have eaten before coming.','They had eaten before they came.','They are eating now.','They eats before came.'], answer:1 },
+        { type:'mc', q:'Why do we use the past perfect?', opts:['To describe a future action','To talk about two actions in the past and show which happened first','To express something happening now','To ask a question'], answer:1 },
+        { type:'chal', q:'Which sentence shows the correct use of past perfect?', opts:['She had wrote three books before she turned 20.','She wrote three books before she had turned 20.','She had written three books before she turned 20.','She writes three books before she had turned 20.'], answer:2, note:'"Had written" = past perfect; "turned" = past simple → الترتيب الصحيح.' },
+        { type:'chal', q:'Which sentence best explains cause and result with past perfect?', opts:['She was tired because she works all day.','She had been tired because she was working.','She was tired because she had worked all day.','She is tired because she worked.'], answer:2, note:'"Had worked" يفسر سبب "was tired".' },
+        { type:'fill', q:'"By the time we got to the airport, the plane ______."', opts:['has left','had left','left','was leaving'], answer:1 },
+        { type:'err', sentence:'When I arrived, she has already left.', opts:['When I arrived, she had already left.','When I arrived, she has left already.','When I arrive, she has already left.','When I arrived, she left already.'], answer:0, note:'الخطأ: <strong>has</strong>. عند ربط حدثين في الماضي → had already left.' },
+        { type:'fill', q:'"They ______ dinner when the guests ______."', opts:['had finished / arrived','finished / had arrived','finished / arrive','were finishing / had arrived'], answer:0 },
+        { type:'fill', q:'"I didn\'t eat anything because I ______ breakfast earlier."', opts:['have','had','had had','have had'], answer:2 },
+        { type:'fill', q:'"After he ______, I started cleaning."', opts:['leaves','left','had left','leaving'], answer:2 },
+        { type:'fill', q:'"She ______ snow before last winter."', opts:['has never seen','had never seen','never sees','never saw'], answer:1 },
+        { type:'fill', q:'"We were late because we ______ the keys."', opts:['have forgotten','had forgotten','forget','were forgetting'], answer:1 },
+        { type:'fill', q:'"The teacher ______ the homework before class started."', opts:['has already checked','had already checked','already checks','was already checking'], answer:1 }
+      ]
+    },
+
+    'future-simple': {
+      icon: 'F',
+      titleAr: 'Future Simple',
+      titleEn: 'The future simple tense',
+      tagline: 'المستقبل البسيط',
+      rules: [
+        { type: 'table', headers: ['Form', 'Structure', 'Example'], rows: [
+          ['will', 'will + base verb', 'He will speak.'],
+          ['going to', 'be + going to + verb', 'I am going to play football tomorrow.']
+        ]},
+        { type: 'text', html: '<strong>الاستخدامات:</strong> التوقعات (predictions), الخطط المستقبلية (مع going to), الوعود والعروض.' },
+        { type: 'text', html: '<strong>الكلمات الدالة:</strong> tomorrow, next week, later, in the future, I think.' }
+      ],
+      examples: ["He will speak.", "I am going to play football tomorrow.", "I think it will rain.", "I will help you."],
+      quiz: [
+        { type:'fill', q:'"I ____ you tomorrow."', opts:['calls','am calling','will call','called'], answer:2 },
+        { type:'mc', q:'Which sentence uses the "going to" future correctly?', opts:['I going to play soccer.','She is going to travel next week.','We are go to eat.','He will going to swim.'], answer:1 },
+        { type:'mc', q:'What is the function in: "I think it will snow tomorrow"?', opts:['A plan','A request','A prediction','A question'], answer:2 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['He will to come tomorrow.','She going to sings.','They is going to study.','I will help you with your homework.'], answer:3 },
+        { type:'mc', q:'Which sentence uses the Future Simple correctly?', opts:['She will to call you tonight.','They are going call the doctor.','I will meet you at 6 p.m.','He will goes tomorrow.'], answer:2 },
+        { type:'mc', q:'Make this negative: "She will eat with us."', opts:["She won't eats with us.","She won't eat with us.","She not will eat with us.","She doesn't will eat."], answer:1 },
+        { type:'mc', q:'Which sentence is a prediction using Future Simple?', opts:['I will call you later.','I am calling you.','I call you now.','I was calling you.'], answer:0 },
+        { type:'err', sentence:'She will buys a new phone tomorrow.', opts:['She will buy a new phone tomorrow.','She wills buy a new phone tomorrow.','She will buying a new phone tomorrow.','She will bought a new phone tomorrow.'], answer:0, note:'الخطأ: <strong>buys</strong>. بعد will نستخدم المصدر → buy.' },
+        { type:'err', sentence:'Will you comes to the meeting?', opts:['Will you come to the meeting?','Will you came to the meeting?','Will you coming to the meeting?','Do you comes to the meeting?'], answer:0, note:'الخطأ: <strong>comes</strong>. بعد will نستخدم المصدر → come.' },
+        { type:'fill', q:'"By next year, she __________ from college."', opts:['graduates','will graduate','graduated','is graduating'], answer:1 },
+        { type:'fill', q:'"I think it __________ tomorrow, so bring your umbrella."', opts:['rains','will rain','rained','is raining'], answer:1 },
+        { type:'fill', q:'"They __________ before 10 p.m." (negative)', opts:["don't arrive","won't arrive","didn't arrive","aren't arrive"], answer:1 },
+        { type:'fill', q:'"We __________ grandma this weekend."', opts:['visit','will visit','visited','visiting'], answer:1 },
+        { type:'fill', q:'"I promise I __________ your birthday." (negative)', opts:["don't forget","won't forget","didn't forget","not forget"], answer:1 },
+        { type:'fill', q:'"The team __________ the match, I\'m sure!"', opts:['win','wins','will win','won'], answer:2 },
+        { type:'fill', q:'"He thinks it __________ a tough exam."', opts:['is','will be','was','being'], answer:1 },
+        { type:'chal', q:'What is the function of "will" in: "I will open the window; it\'s hot in here."', opts:['Promise','Spontaneous decision','Prediction','Plan'], answer:1, note:'هذا قرار مفاجئ في لحظة الكلام → spontaneous decision.' }
+      ]
+    },
+
+    'tense-tracks': {
+      icon: 'T',
+      titleAr: 'Tense Tracks',
+      titleEn: 'Helping verbs & their verb forms',
+      tagline: 'شرح المسارات',
+      rules: [
+        { type: 'text', html: 'كل فعل مساعد له «مسار» خاص — أي شكل معين يأتي بعده. احفظ هذا الجدول وستعرف الزمن من النظرة الأولى.' },
+        { type: 'table', headers: ['Helping Verb', 'Form Used', 'Example'], rows: [
+          ['do / does / did', 'Base form (infinitive)', 'Do you play football?'],
+          ['am / is / are / was / were', 'Verb + ing', 'Is he playing football?'],
+          ['has / have / had', 'Past participle (V3)', 'Have you played football?']
+        ]}
+      ],
+      examples: ["Do you play football?", "Is he playing football?", "Have you played football?"],
+      quiz: [
+        { type:'fill', q:'"_____ she play the piano?"', opts:['Is','Do','Does','Are'], answer:2 },
+        { type:'mc', q:'Choose the correct continuous question:', opts:['Does he playing football?','Is he play football?','Is he playing football?','Has he play football?'], answer:2 },
+        { type:'mc', q:'Which uses present perfect correctly?', opts:['Did you played football?','Have you played football?','Are you played football?','Has you playing football?'], answer:1 },
+        { type:'fill', q:'"He did ____ his homework."', opts:['doing','done','do','does'], answer:2 },
+        { type:'mc', q:'Which sentence follows the correct "do" pattern?', opts:['Does she plays the piano?','Did he played football yesterday?','Do they speak English?','Do speaks she well?'], answer:2 },
+        { type:'mc', q:'Which sentence uses the "be + ing" tracker?', opts:['I am play football now.','Is he playing football now?','Are you plays football?','Was he played football?'], answer:1 },
+        { type:'mc', q:'Which uses present perfect correctly?', opts:['She have went to the market.','They has gone to school.','I have eaten already.','He have studied hard.'], answer:2 },
+        { type:'err', sentence:'Did he went to the store?', opts:['Did he go to the store?','Did he gone to the store?','Was he go to the store?','Has he gone to the store?'], answer:0, note:'الخطأ: <strong>went</strong>. بعد did نستخدم المصدر → go.' },
+        { type:'err', sentence:'She is eats dinner now.', opts:['She is eating dinner now.','She is ate dinner now.','She eats dinner now.','She has eat dinner now.'], answer:0, note:'الخطأ: <strong>eats</strong>. بعد is نستخدم verb-ing → eating.' },
+        { type:'err', sentence:'They has played well today.', opts:['They have played well today.','They had played well today.','They has playing well today.','They was played well today.'], answer:0, note:'الخطأ: <strong>has</strong>. They جمع → have.' },
+        { type:'fill', q:'"______ she ______ tennis every Saturday?"', opts:['Is / playing','Does / play','Has / played','Did / play'], answer:1 },
+        { type:'fill', q:'"He ______ TV when I called him."', opts:['watches','was watching','has watched','watched'], answer:1 },
+        { type:'fill', q:'"They ______ just ______ the report."', opts:['are / finishing','have / finished','do / finish','were / finishing'], answer:1 },
+        { type:'fill', q:'"What ______ you ______ right now?"', opts:['do / do','are / doing','have / done','did / do'], answer:1 },
+        { type:'fill', q:'"I ______ to the party yesterday." (negative)', opts:["don't go","didn't go","wasn't go","haven't gone"], answer:1 },
+        { type:'match', q:'Which tracker does "Have you seen that movie?" use?', opts:['do + base verb','was/were + ing','have/has + V3','did + base verb'], answer:2 },
+        { type:'match', q:'Which tracker does "She was reading a book" use?', opts:['do + base verb','was/were + ing','have/has + V3','did + base verb'], answer:1 },
+        { type:'match', q:'Which tracker does "Do they work here?" use?', opts:['do + base verb','was/were + ing','have/has + V3','did + base verb'], answer:0 },
+        { type:'match', q:'Which tracker does "Did he call you?" use?', opts:['do + base verb','was/were + ing','have/has + V3','did + base verb'], answer:3 },
+        { type:'chal', q:'Why use "have you finished" instead of "did you finish" in: "Have you finished your homework yet?"', opts:['Because the speaker is referring to a past event.','Because the event happened in the future.','Because the speaker is focusing on the result now.','Because it\'s a general truth.'], answer:2, note:'Present Perfect نستخدمه عندما النتيجة مهمة الآن.' }
+      ]
+    },
+
+    /* ────────── SENTENCE STRUCTURE ────────── */
+    'sentence-types': {
+      icon: 'S',
+      titleAr: 'Sentence Types',
+      titleEn: 'Simple · Compound · Complex',
+      tagline: 'أنواع الجمل',
+      rules: [
+        { type: 'text', html: 'يقيّم الآيلتس قدرتك على تنويع الجمل. أتقن الأنواع الثلاثة لرفع درجة <strong>Grammatical Range</strong>.' },
+        { type: 'table', headers: ['Type', 'Structure', 'Example'], rows: [
+          ['Simple', 'فاعل + فعل (فكرة واحدة)', 'The weather was cold.'],
+          ['Compound', 'جملتان مستقلتان + and/but/so/or', 'It was cold, so we stayed inside.'],
+          ['Complex', 'جملة رئيسية + جملة تابعة', 'Although it was cold, we went out.']
+        ]},
+        { type: 'text', html: '<strong>الروابط:</strong> Compound تستخدم <code>FANBOYS</code> (for, and, nor, but, or, yet, so). Complex تستخدم <code>because, although, when, while, if, which, that</code>.' }
+      ],
+      examples: ["The weather was cold.", "It was cold, so we stayed inside.", "Although it was cold, we went out.", "The book that I read was excellent."],
+      quiz: [
+        { type:'mc', q:'Which sentence is complex?', opts:['I woke up and ate breakfast.','Because I was tired, I went to bed early.','It was sunny.','I like tea but not coffee.'], answer:1 },
+        { type:'mc', q:'Which is a compound sentence?', opts:['She studied hard.','She studied hard, so she passed.','When she studied, she passed.','The hard-working student passed.'], answer:1 },
+        { type:'mc', q:'Identify the simple sentence:', opts:['The students completed the project on time.','The students worked, and the teacher helped.','Although they worked, they failed.','They passed because they worked.'], answer:0 },
+        { type:'fill', q:'"____ it was raining, the match continued."', opts:['Although','So','And','But'], answer:0 },
+        { type:'fill', q:'"He missed the bus, ____ he was late."', opts:['although','so','because','which'], answer:1 },
+        { type:'fill', q:'"The book ____ I read was excellent."', opts:['so','because','which','but'], answer:2 },
+        { type:'err', sentence:'Although it was late, but we kept working.', opts:['Although it was late, we kept working.','Although it was late so we kept working.','Although it was late and we kept working.','It was late although we kept working but.'], answer:0, note:'لا نجمع بين <strong>although</strong> و<strong>but</strong> في نفس الجملة.' },
+        { type:'mc', q:'Which complex sentence uses a relative clause?', opts:['I was tired, so I slept.','The man who called you is here.','It rained, and we left.','She sings and dances.'], answer:1 },
+        { type:'chal', q:'Best academic (complex) rewrite of: "Prices rose. People bought less."', opts:['Prices rose and people bought less.','As prices rose, people bought less.','Prices rose, people bought less.','Prices rose so people bought less.'], answer:1, note:'الجملة المعقدة (As...) أقوى أكاديميًا في الكتابة.' }
+      ]
+    },
+
+    'if-conditions': {
+      icon: 'I',
+      titleAr: 'IF Conditions',
+      titleEn: 'Conditional sentences',
+      tagline: 'الجمل الشرطية',
+      rules: [
+        { type: 'table', headers: ['Type', 'IF Clause', 'Main Clause', 'Example'], rows: [
+          ['Zero', 'Present Simple', 'Present Simple', 'If you heat ice, it melts.'],
+          ['First', 'Present Simple', 'Will + base verb', 'If Bob works hard, he will graduate.'],
+          ['Second', 'Past Simple (use "were")', 'Would + base verb', 'If I were you, I would study harder.'],
+          ['Third', 'Had + V3', 'Would have + V3', 'If I had studied, I would have passed.']
+        ]},
+        { type: 'text', html: '<strong>Zero</strong>: حقائق · <strong>First</strong>: ممكن الحدوث · <strong>Second</strong>: خيالي/افتراضي · <strong>Third</strong>: ندم على الماضي.' }
+      ],
+      examples: ["If you heat ice, it melts.", "If it rains tomorrow, we will stay home.", "If I were you, I would study harder.", "If I had studied, I would have passed."],
+      quiz: [
+        { type:'mc', q:'What type of conditional is this? "If she studies, she will pass the exam."', opts:['Zero','First','Second','Third'], answer:1 },
+        { type:'mc', q:'Choose the correct second conditional:', opts:['If I was rich, I will buy a car.','If I were rich, I would buy a car.','If I am rich, I would buy a car.','If I had rich, I would buy a car.'], answer:1 },
+        { type:'fill', q:'Third conditional: "If I ______ harder, I would have passed."', opts:['study','studied','had studied','have studied'], answer:2 },
+        { type:'mc', q:'Which is a zero conditional?', opts:['If I saw him, I would talk to him.','If it rains, we will stay home.','If water boils, it evaporates.','If she had gone, she would have seen it.'], answer:2 },
+        { type:'mc', q:'Which is a First Conditional?', opts:['If she will study, she passes.','If she studied, she would pass.','If she studies, she will pass.','If she had studied, she would pass.'], answer:2 },
+        { type:'mc', q:'Identify the Second Conditional:', opts:['If it rains, we will cancel.','If I were a bird, I would fly.','If I had known, I would have helped.','If I study, I pass.'], answer:1 },
+        { type:'mc', q:'Correct Third Conditional:', opts:['If she studied, she would passed.','If she had studied, she would have passed.','If she have studied, she pass.','If she has studied, she would pass.'], answer:1 },
+        { type:'err', sentence:'If I was you, I will take the job.', opts:['If I were you, I would take the job.','If I am you, I will take the job.','If I had been you, I will take the job.','If I were you, I will take the job.'], answer:0, note:'الخطأ: <strong>was</strong> و <strong>will</strong>. Second conditional → were + would.' },
+        { type:'err', sentence:'If he will come, we will start.', opts:['If he comes, we will start.','If he came, we will start.','If he had come, we will start.','If he is coming, we will start.'], answer:0, note:'الخطأ: <strong>will</strong> في جملة if. الصواب: present simple بعد if في First conditional.' },
+        { type:'err', sentence:'If she had knew, she would have helped.', opts:['If she had known, she would have helped.','If she had knew, she would helped.','If she has known, she would have helped.','If she knew, she would have helped.'], answer:0, note:'الخطأ: <strong>knew</strong>. الصواب: had + V3 → had known.' },
+        { type:'fill', q:'"If you ____ , you will pass the test." (First)', opts:['will study','studied','study','had studied'], answer:2 },
+        { type:'fill', q:'"If I ____ rich, I would travel the world." (Second)', opts:['am','was','were','had been'], answer:2 },
+        { type:'fill', q:'"If they had left earlier, they ____ the flight." (Third)', opts:["wouldn't miss","didn't miss","wouldn't have missed","won't miss"], answer:2 },
+        { type:'fill', q:'"If water reaches 100°C, it ____ ." (Zero)', opts:['will boil','boils','boiled','would boil'], answer:1 },
+        { type:'match', q:'"If I had wings, I would fly." — which type?', opts:['Zero','First','Second','Third'], answer:2 },
+        { type:'match', q:'"If I had called you, would you have come?" — which type?', opts:['Zero','First','Second','Third'], answer:3 },
+        { type:'match', q:'"If you press this button, the machine starts." — which type?', opts:['Zero','First','Second','Third'], answer:0 },
+        { type:'match', q:'"If he finishes early, he will join us." — which type?', opts:['Zero','First','Second','Third'], answer:1 }
+      ]
+    },
+
+    'relative-clauses': {
+      icon: 'R',
+      titleAr: 'Relative Clauses',
+      titleEn: 'Who · Which · That · Whose · What',
+      tagline: 'الجمل الموصولة',
+      rules: [
+        { type: 'table', headers: ['Word', 'Usage', 'Example'], rows: [
+          ['Who / Whom', 'مع الأشخاص', 'The woman who gave the presentation…'],
+          ['Which', 'مع الأشياء أو الخيارات', 'The shop which is next to the pharmacy.'],
+          ['What', 'عندما يوجد فعل قبل الفراغ', "I don't know what to do."],
+          ['Whose', 'يدل على الملكية', 'The boy whose bicycle was stolen…']
+        ]},
+        { type: 'text', html: '<strong>ملاحظة:</strong> استخدم <code>who</code> أكثر من <code>whom</code> في الكلام العادي. والـ <code>whom</code> رسمية ونادرة.' }
+      ],
+      examples: ["The woman who gave the presentation is my teacher.", "The shop which is next to the pharmacy is closed.", "The boy whose bicycle was stolen is sad."],
+      quiz: [
+        { type:'fill', q:'"The man ______ lives next to me is a doctor."', opts:['what','which','who','whose'], answer:2 },
+        { type:'fill', q:'"The shop ______ sells flowers is near my house."', opts:['what','who','whose','which'], answer:3 },
+        { type:'fill', q:'"I don\'t know ______ to wear today."', opts:['which','what','who','whose'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['The girl whose bag is red is my sister.','The girl which bag is red is my sister.','The girl who bag is red is my sister.','The girl what bag is red is my sister.'], answer:0 },
+        { type:'fill', q:'"This is the city ______ I was born."', opts:['who','which','whose','where'], answer:3 },
+        { type:'fill', q:'"I bought a book ______ is very interesting."', opts:['who','whose','which','where'], answer:2 },
+        { type:'fill', q:'"The boy ______ bicycle was stolen is crying."', opts:['who','which','whose','where'], answer:2 }
+      ]
+    },
+
+    'time-connectors': {
+      icon: 'T',
+      titleAr: 'Time Connectors',
+      titleEn: 'When · While · After · Before · As soon as · Until',
+      tagline: 'أدوات الربط الزمنية',
+      rules: [
+        { type: 'text', html: 'تربط حدثين وتوضح متى وقع كل منهما. الأدوات: <code>when</code> · <code>while</code> · <code>as</code> · <code>after</code> · <code>before</code> · <code>as soon as</code> · <code>by the time</code> · <code>until</code>.' },
+        { type: 'table', headers: ['Connector', 'Use', 'Example'], rows: [
+          ['When', 'حدث يقاطع آخر', 'I was reading when the lights went out.'],
+          ['While / As', 'حدثان في نفس الوقت', 'While I was eating, he was talking.'],
+          ['Before / After', 'ترتيب الأحداث', 'I slept after I had studied.'],
+          ['As soon as / By the time / Until', 'وقت محدد', 'As soon as he arrived, the show started.']
+        ]}
+      ],
+      examples: ["I was reading when she called.", "While we were eating, the lights went out.", "I'll call you as soon as I finish."],
+      quiz: [
+        { type:'mc', q:'Choose the correct sentence using time connectors:', opts:['When he was sleep, she calls him.','When I arrived, they had already left.','He listening music when she come.','Before he has gone, I saw him.'], answer:1 },
+        { type:'fill', q:'"Roger ______ a lecture when he realized the time."', opts:['listen','listened','was listening','had listened'], answer:2 },
+        { type:'fill', q:'"I will call you as soon as I ______ home."', opts:['get','got','getting','gets'], answer:0 },
+        { type:'mc', q:'Which shows correct use of present and future tenses?', opts:['I go to the party until I will finish.','I finish my work when I will eat.','I will sleep after I finish my homework.','I will going after I finishing.'], answer:2 },
+        { type:'mc', q:'Which sentence uses the connector correctly?', opts:['He had lunch while he arrives.','I was watching TV when the power went out.','As he comes, we were leaving.','She sings by the time he left.'], answer:1 },
+        { type:'fill', q:'"I\'ll call you ____ I get home."', opts:['after','while','when','until'], answer:2 },
+        { type:'fill', q:'"While he ____ TV, she ____ a book."', opts:['was watching / read','watches / is reading','was watching / was reading','had watched / read'], answer:2 },
+        { type:'err', sentence:'She left after she had eats dinner.', opts:['She left after she had eaten dinner.','She left after she eats dinner.','She left after she has eaten dinner.','She leaves after she had eaten dinner.'], answer:0, note:'الخطأ: <strong>had eats</strong>. الصواب: had + V3 → had eaten.' },
+        { type:'err', sentence:'While I sleep, the dog barked.', opts:['While I was sleeping, the dog barked.','While I sleeping, the dog barked.','While I am sleeping, the dog barked.','While I had slept, the dog barked.'], answer:0, note:'الخطأ: <strong>sleep</strong>. مع while في الماضي → was sleeping.' },
+        { type:'err', sentence:'I will stay here by the time he arrives.', opts:['I will stay here until he arrives.','I will stay here while he arrives.','I will stay here when he arrives.','I will stay here after he arrives.'], answer:0, note:'الخطأ: <strong>by the time</strong>. للبقاء حتى وقت معين → until.' },
+        { type:'fill', q:'"She was cooking ______ I was setting the table."', opts:['after','while','before','until'], answer:1 },
+        { type:'fill', q:'"We had finished dinner ______ the guests arrived."', opts:['after','while','before','until'], answer:2 },
+        { type:'fill', q:'"I\'ll call you ______ I finish my meeting."', opts:['after','while','before','as soon as'], answer:3 },
+        { type:'fill', q:'"______ he walked into the room, everyone stopped talking."', opts:['Until','While','As soon as','Before'], answer:2 },
+        { type:'match', q:'"Two actions at the same time" — which connector?', opts:['While','After','As soon as','Until'], answer:0 },
+        { type:'match', q:'"One action follows another" — which connector?', opts:['While','After','As soon as','Until'], answer:1 },
+        { type:'match', q:'"Immediate reaction after an action" — which?', opts:['While','After','As soon as','Until'], answer:2 },
+        { type:'match', q:'"Up to a point in time" — which connector?', opts:['While','After','As soon as','Until'], answer:3 },
+        { type:'chal', q:'"By the time we ______ at the cinema, the movie ______."', opts:['arrived / had started','arrive / starts','had arrived / started','arrived / was starting'], answer:0, note:'"By the time" يحتاج past simple + past perfect.' }
+      ]
+    },
+
+    'linking-words': {
+      icon: 'L',
+      titleAr: 'Linking Words',
+      titleEn: 'Addition · Contrast · Cause & Effect',
+      tagline: 'أدوات الربط المنطقية',
+      rules: [
+        { type: 'text', html: 'الروابط (cohesive devices) جزء أساسي من معيار <strong>Coherence & Cohesion</strong> في كتابة الآيلتس.' },
+        { type: 'table', headers: ['Function', 'Linkers', 'Example'], rows: [
+          ['Addition (إضافة)', 'furthermore, moreover, in addition', 'Moreover, it saves money.'],
+          ['Contrast (تضاد)', 'however, although, despite, whereas', 'However, costs are high.'],
+          ['Cause / Effect (سبب/نتيجة)', 'therefore, as a result, because, thus', 'Therefore, demand fell.']
+        ]},
+        { type: 'text', html: '<strong>انتبه للتركيب:</strong> <code>despite + اسم/ing</code> بينما <code>although + جملة</code>. ❌ Despite it was late ✅ Despite the late hour / Although it was late.' }
+      ],
+      examples: ["Furthermore, it is cost-effective.", "However, the results were mixed.", "As a result, sales increased.", "Despite the rain, we continued."],
+      quiz: [
+        { type:'fill', q:'"The plan is cheap. ____, it is fast."', opts:['However','Moreover','Despite','Although'], answer:1 },
+        { type:'fill', q:'"____ the high cost, the project went ahead."', opts:['Although','However','Despite','Because'], answer:2 },
+        { type:'fill', q:'"Sales dropped; ____, the company cut jobs."', opts:['moreover','therefore','whereas','despite'], answer:1 },
+        { type:'mc', q:'Which shows contrast correctly?', opts:['Despite it was raining, we left.','Although the rain, we left.','Despite the rain, we left.','However the rain, we left.'], answer:2 },
+        { type:'fill', q:'"He is rich, ____ his brother is poor."', opts:['whereas','moreover','therefore','despite'], answer:0 },
+        { type:'err', sentence:'Although the bad weather, the flight departed.', opts:['Despite the bad weather, the flight departed.','Although bad weather, the flight departed.','However the bad weather, the flight departed.','Because the bad weather, the flight departed.'], answer:0, note:'قبل الاسم نستخدم <strong>Despite</strong>، وليس Although.' },
+        { type:'fill', q:'"The city is crowded. ____, pollution is rising."', opts:['In addition','However','Whereas','Despite'], answer:0 },
+        { type:'mc', q:'Choose the cause/effect linker:', opts:['moreover','whereas','as a result','although'], answer:2 },
+        { type:'chal', q:'Best linker for two full clauses: "Technology improves lives ____ it creates new risks."', opts:['despite','however,','although','in addition'], answer:2, note:'<strong>although</strong> يربط جملتين كاملتين؛ however تحتاج فاصلة منقوطة أو نقطة.' }
+      ]
+    },
+
+    /* ────────── ARTICLES & NOUNS ────────── */
+    'articles': {
+      icon: 'A',
+      titleAr: 'Articles (a / an / the)',
+      titleEn: 'Indefinite & definite articles',
+      tagline: 'أدوات التعريف والتنكير',
+      rules: [
+        { type: 'table', headers: ['Article', 'Use', 'Example'], rows: [
+          ['a', 'اسم مفرد معدود يبدأ بصوت ساكن', 'a university, a book'],
+          ['an', 'اسم مفرد معدود يبدأ بصوت متحرك', 'an hour, an apple'],
+          ['the', 'شيء محدد أو معروف للطرفين', 'the sun, the book I bought'],
+          ['(no article)', 'الجمع/غير المعدود بمعنى عام', 'Water is essential. Cars pollute.']
+        ]},
+        { type: 'text', html: '<strong>القاعدة بالصوت لا بالحرف:</strong> <code>a university</code> (تبدأ بصوت /j/) و <code>an hour</code> (الـ h صامتة).' }
+      ],
+      examples: ["I saw a movie last night.", "She is an honest person.", "The Earth orbits the Sun.", "Knowledge is power."],
+      quiz: [
+        { type:'fill', q:'"She is ___ engineer."', opts:['a','an','the','-'], answer:1 },
+        { type:'fill', q:'"We waited for ___ hour."', opts:['a','an','the','-'], answer:1 },
+        { type:'fill', q:'"He plays ___ guitar very well."', opts:['a','an','the','-'], answer:2 },
+        { type:'fill', q:'"___ water is essential for life." (general)', opts:['A','An','The','-'], answer:3 },
+        { type:'fill', q:'"I bought ___ book. ___ book was expensive."', opts:['a / A','a / The','the / The','an / The'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['He is a university student.','He is an university student.','He is the university student here.','He is university student.'], answer:0 },
+        { type:'err', sentence:'The honesty is an important value.', opts:['Honesty is an important value.','The honesty is important value.','An honesty is important value.','Honesty is the important value.'], answer:0, note:'الأسماء المجردة العامة بدون the، ونستخدم <strong>an</strong> قبل important.' },
+        { type:'fill', q:'"___ sun rises in ___ east."', opts:['A / an','The / the','The / an','- / the'], answer:1 },
+        { type:'mc', q:'Which sentence needs NO article in the blank?', opts:['I love ___ music.','I saw ___ elephant.','Close ___ door.','He is ___ doctor.'], answer:0 }
+      ]
+    },
+
+    'quantifiers': {
+      icon: 'Q',
+      titleAr: 'Quantifiers',
+      titleEn: 'Countable & Uncountable · Some · Any · Much · Many',
+      tagline: 'كميات المعدود وغير المعدود',
+      rules: [
+        { type: 'table', headers: ['Category', 'Countable', 'Uncountable'], rows: [
+          ['Examples', 'pens, books, chairs, cars', 'water, milk, sugar, money, time'],
+          ['Verb form', 'are / were', 'is / was'],
+          ['Quantity', 'a few / few / many', 'a little / little / much'],
+          ['Positive', 'some', 'some'],
+          ['Negative / Q', 'any', 'any'],
+          ['Other', 'a lot of, too many', 'a lot of, too much']
+        ]}
+      ],
+      examples: ["I have many books.", "There isn't much milk.", "Do you have any questions?"],
+      quiz: [
+        { type:'mc', q:'Choose the correct sentence:', opts:['I have many sugar.','I have much pens.','I have a few pens.','I have a little pens.'], answer:2 },
+        { type:'mc', q:'Which noun is uncountable?', opts:['Chair','Car','Butter','Book'], answer:2 },
+        { type:'fill', q:'"She doesn\'t have ___ milk."', opts:['any','many','few','a few'], answer:0 },
+        { type:'fill', q:'"There are too ___ students in the class."', opts:['much','many','some','little'], answer:1 },
+        { type:'fill', q:'"Russia is ___ than Canada."', opts:['bigger','the bigger','biggest','the biggest'], answer:0 },
+        { type:'fill', q:'"The computer costs so ___ money."', opts:['most','more','many','much'], answer:3 },
+        { type:'fill', q:'"I am a little busy now. Can you come back after ___ minutes?"', opts:['many','a few','a little','several'], answer:1 },
+        { type:'fill', q:'"He did not have ___ money in his wallet."', opts:['lots','much','plenty','many'], answer:1 }
+      ]
+    },
+
+    'plurals-agreement': {
+      icon: 'S',
+      titleAr: 'Plurals & Subject-Verb Agreement',
+      titleEn: 'Plurals · Match the verb to the real subject',
+      tagline: 'الجمع وتوافق الفعل',
+      rules: [
+        { type: 'text', html: '<strong>قاعدة الجمع:</strong> نضيف <code>s</code> في النهاية. car → cars.' },
+        { type: 'table', headers: ['Type', 'Singular', 'Plural'], rows: [
+          ['Irregular', 'child', 'children'],
+          ['Irregular', 'man', 'men'],
+          ['Irregular', 'woman', 'women'],
+          ['Seeming Plurals', 'physics, series, diabetes', 'لا تتغير، وتأخذ فعل مفرد (is/was)']
+        ]},
+        { type: 'text', html: '<strong>توافق الفعل:</strong> الفعل يتبع <strong>الفاعل الحقيقي</strong>:<br>✅ <em>One of my old friends <strong>is</strong> very kind.</em> (الفعل يتبع "one" وليس "friends")<br>✅ <em>Old cities of Italy <strong>are</strong> beautiful.</em> (الفعل يتبع "cities")' }
+      ],
+      examples: ["One of my friends is here.", "Physics is my favorite subject.", "Old books on the shelf are dusty."],
+      quiz: [
+        { type:'mc', q:'What is the plural of "man"?', opts:['mans','men','manes','mens'], answer:1 },
+        { type:'mc', q:'Choose the correct sentence:', opts:['One of my friends are coming.','One of my friends is coming.','Friends of one is coming.','One of my friends be coming.'], answer:1 },
+        { type:'mc', q:'Which word is uncountable but looks plural?', opts:['Chairs','Series','Cars','Books'], answer:1 },
+        { type:'fill', q:'"Old books on the shelf ____ dusty."', opts:['is','was','are','be'], answer:2 },
+        { type:'fill', q:'"Physics ____ my favorite subject."', opts:['are','were','is','be'], answer:2 },
+        { type:'fill', q:'"The news ____ interesting today."', opts:['are','is','were','be'], answer:1 },
+        { type:'fill', q:'"Each of the boys ____ a present."', opts:['have','has','are','were'], answer:1 }
+      ]
+    },
+
+    /* ────────── PREPOSITIONS ────────── */
+    'prepositions': {
+      icon: 'P',
+      titleAr: 'Prepositions',
+      titleEn: 'Time · Place · Movement',
+      tagline: 'حروف الجر',
+      rules: [
+        { type: 'table', headers: ['Type', 'at', 'on', 'in'], rows: [
+          ['Time', 'الساعات: at 6 PM', 'الأيام/التواريخ: on Monday', 'الشهور/السنوات: in May, in 2020'],
+          ['Place', 'نقطة محددة: at the door', 'سطح: on the table', 'داخل: in the room']
+        ]},
+        { type: 'text', html: '<strong>الحركة:</strong> <code>to</code> (اتجاه)، <code>from</code> (مصدر)، <code>through</code> (عبر)، <code>into / out of</code>، <code>across</code>. مثال: She walked <em>through</em> the park <em>to</em> the station.' }
+      ],
+      examples: ["The meeting is at 9 AM.", "We met on Friday.", "I was born in 2001.", "The cat is under the table."],
+      quiz: [
+        { type:'fill', q:'"The exam starts ___ 9 o\'clock."', opts:['at','on','in','to'], answer:0 },
+        { type:'fill', q:'"My birthday is ___ June."', opts:['at','on','in','to'], answer:2 },
+        { type:'fill', q:'"We have a meeting ___ Monday."', opts:['at','on','in','to'], answer:1 },
+        { type:'fill', q:'"The keys are ___ the table."', opts:['at','on','in','through'], answer:1 },
+        { type:'fill', q:'"She walked ___ the tunnel."', opts:['on','at','through','in'], answer:2 },
+        { type:'fill', q:'"The shop is ___ the bank and the café."', opts:['between','among','on','at'], answer:0 },
+        { type:'fill', q:'"He travelled ___ Riyadh ___ Dubai."', opts:['from / to','at / in','on / to','in / from'], answer:0 },
+        { type:'err', sentence:'I will see you in Monday morning.', opts:['I will see you on Monday morning.','I will see you at Monday morning.','I will see you Monday in morning.','I will see you on Monday at morning.'], answer:0, note:'الأيام تأخذ <strong>on</strong>: on Monday.' },
+        { type:'fill', q:'"The plane flew ___ the clouds."', opts:['above','on','at','to'], answer:0 },
+        { type:'fill', q:'"They arrived ___ the airport late."', opts:['at','in','on','to'], answer:0 }
+      ]
+    },
+
+    /* ────────── VOICE, MODALS & COMPARISON ────────── */
+    'passive': {
+      icon: 'V',
+      titleAr: 'Passive Voice',
+      titleEn: 'be + past participle (V3)',
+      tagline: 'المبني للمجهول',
+      rules: [
+        { type: 'text', html: 'نستخدم المبني للمجهول عندما يكون <strong>الفعل أهم من الفاعل</strong> — شائع جدًا في كتابة الآيلتس الأكاديمية، خاصة <code>Task 1</code> ووصف العمليات.' },
+        { type: 'table', headers: ['Tense', 'Active', 'Passive'], rows: [
+          ['Present', 'They make cars here.', 'Cars are made here.'],
+          ['Past', 'They built it in 1990.', 'It was built in 1990.'],
+          ['Present Perfect', 'They have sent it.', 'It has been sent.'],
+          ['Modal', 'They must clean it.', 'It must be cleaned.']
+        ]},
+        { type: 'text', html: 'الصيغة: <code>be (في الزمن المناسب) + V3</code>. الفاعل اختياري مع <code>by</code>: <em>The report was written by the team.</em>' }
+      ],
+      examples: ["The report was written by the team.", "English is spoken here.", "The bridge was built in 1932.", "The samples have been tested."],
+      quiz: [
+        { type:'mc', q:'Passive of "They clean the office daily":', opts:['The office is cleaned daily.','The office cleans daily.','The office was cleaned daily.','The office is cleaning daily.'], answer:0 },
+        { type:'fill', q:'"The letter ___ yesterday."', opts:['was sent','is sent','sent','has sent'], answer:0 },
+        { type:'fill', q:'"This song ___ by millions of people."', opts:['is heard','hears','is hearing','heard'], answer:0 },
+        { type:'err', sentence:'The house was build in 1990.', opts:['The house was built in 1990.','The house was building in 1990.','The house is build in 1990.','The house were built in 1990.'], answer:0, note:'بعد was نستخدم <strong>V3</strong>: built.' },
+        { type:'mc', q:'Passive of "Someone has stolen my bike":', opts:['My bike has been stolen.','My bike has stolen.','My bike is stolen by someone.','My bike was stealing.'], answer:0 },
+        { type:'fill', q:'"The rooms must ___ before noon."', opts:['be cleaned','cleaned','to clean','being cleaned'], answer:0 },
+        { type:'fill', q:'"A new hospital ___ next year."', opts:['will be built','will build','is built','was built'], answer:0 },
+        { type:'mc', q:'Which is correctly passive (IELTS Task 1)?', opts:['The data were collected over six months.','The data collected over six months.','The data is collect over six months.','They were collect the data.'], answer:0 },
+        { type:'chal', q:'Active → Passive: "Researchers conducted the survey in 2019."', opts:['The survey was conducted in 2019.','The survey is conducted in 2019.','The survey conducted in 2019.','The survey has conducted in 2019.'], answer:0, note:'ماضٍ مبني للمجهول: was + conducted.' }
+      ]
+    },
+
+    'modals': {
+      icon: 'M',
+      titleAr: 'Modal Verbs & Adverbs',
+      titleEn: 'Must · Should · Could · Would · Might · Have to',
+      tagline: 'الأفعال الناقصة والحال',
+      rules: [
+        { type: 'text', html: '<strong>الفرق بين الصفة والحال:</strong> الصفة تصف الاسم (She is <em>nice</em>) — الحال يصف الفعل (She speaks <em>nicely</em>). كلمات مثل <code>fast</code> و<code>hard</code> تبقى نفسها كصفة وحال.' },
+        { type: 'table', headers: ['Modal', 'Usage', 'Example'], rows: [
+          ['Must', 'ضرورة قوية', 'I must study now.'],
+          ['Should', 'نصيحة', 'You should drink water.'],
+          ['Could', 'قدرة في الماضي', 'She could read at age 4.'],
+          ['Would / Wouldn\'t', 'لطف / مستقبل في الماضي', 'He said he would call.'],
+          ['Might', 'احتمال', 'I might be late.'],
+          ['Could have + V3', 'احتمال ماضي لم يحدث', "She could have gone, but she didn't."],
+          ['Have to', 'إلزام (واجب)', 'They have to do homework.'],
+          ['Had to', 'إلزام في الماضي', 'He had to leave early.']
+        ]}
+      ],
+      examples: ["You should rest.", "I might be late.", "She could have taken the bus.", "He runs fast."],
+      quiz: [
+        { type:'mc', q:'What describes how an action is done?', opts:['Adjective','Noun','Adverb','Verb'], answer:2 },
+        { type:'mc', q:'Choose the correct modal for advice:', opts:['Must','Might','Should','Could'], answer:2 },
+        { type:'fill', q:'"She could have ____ the bus, but she didn\'t."', opts:['take','takes','took','taken'], answer:3 },
+        { type:'mc', q:'What is the correct use of an adverb?', opts:['He run fastly.','He is fast.','He runs fast.','He fast runs.'], answer:2 },
+        { type:'fill', q:'"You ____ stop at the red light."', opts:['can','must','might','could'], answer:1 },
+        { type:'fill', q:'"I ____ swim when I was a child."', opts:['can','could','must','should'], answer:1 },
+        { type:'fill', q:'"You look tired. You ____ rest."', opts:['must','should','might','could'], answer:1 },
+        { type:'fill', q:'"It\'s cloudy. It ____ rain."', opts:['must','should','might','have to'], answer:2 },
+        { type:'fill', q:'"She ____ leave early yesterday."', opts:['has to','have to','had to','must to'], answer:2 }
+      ]
+    },
+
+    'comparison': {
+      icon: 'C',
+      titleAr: 'Comparison',
+      titleEn: 'Comparatives & Superlatives',
+      tagline: 'المقارنة والتفضيل',
+      rules: [
+        { type: 'table', headers: ['Form', 'Rule', 'Example'], rows: [
+          ['Short adj (+er)', 'adj + er + than', 'cheaper than, bigger than'],
+          ['Long adj', 'more + adj + than', 'more expensive than'],
+          ['Superlative', 'the + -est / the most', 'the cheapest, the most useful'],
+          ['Equality', 'as + adj + as', 'as fast as'],
+          ['Less', 'less + adj + than', 'less common than']
+        ]},
+        { type: 'text', html: '<strong>شاذة:</strong> good → better → the best · bad → worse → the worst · far → further. ❌ more bigger ✅ bigger.' }
+      ],
+      examples: ["China is bigger than Japan.", "This is the most useful tool.", "He is as tall as his brother.", "Gold is less common than iron."],
+      quiz: [
+        { type:'fill', q:'"Russia is ___ than Canada."', opts:['bigger','the bigger','biggest','more big'], answer:0 },
+        { type:'fill', q:'"This phone is ___ than that one."', opts:['expensiver','more expensive','most expensive','expensive'], answer:1 },
+        { type:'fill', q:'"Everest is ___ mountain in the world."', opts:['the highest','higher','highest','the higher'], answer:0 },
+        { type:'fill', q:'"She is ___ tall ___ her sister."', opts:['as / as','so / as','more / than','as / than'], answer:0 },
+        { type:'err', sentence:'This car is more cheaper than mine.', opts:['This car is cheaper than mine.','This car is more cheap than mine.','This car is cheapest than mine.','This car is the cheaper than mine.'], answer:0, note:'لا نجمع <strong>more</strong> مع <strong>-er</strong>.' },
+        { type:'fill', q:'"Health is ___ important thing of all."', opts:['the most','more','most','the more'], answer:0 },
+        { type:'fill', q:'"His English is ___ than before."', opts:['better','gooder','best','more good'], answer:0 },
+        { type:'fill', q:'"Driving is ___ dangerous than flying."', opts:['more','most','as','the most'], answer:0 },
+        { type:'mc', q:'Which is correct?', opts:['It is the worst film I have seen.','It is the baddest film I have seen.','It is the most bad film I have seen.','It is worse film I have seen.'], answer:0 }
+      ]
+    },
+
+    /* ────────── IELTS PRACTICE ────────── */
+    'step-exam': {
+      icon: 'E',
+      titleAr: 'IELTS Grammar Practice',
+      titleEn: 'Mixed grammar questions — IELTS style',
+      tagline: 'تدريب شامل على نمط الآيلتس',
+      rules: [
+        { type: 'text', html: 'هذي مجموعة شاملة من أسئلة القواعد على <strong>نمط الآيلتس</strong>. تغطي كل القواعد اللي درستها مع شوية مفردات وروابط. حاول تجاوبها بإيقاع زمني محدود بدون مراجعة لتقيس مستواك الحقيقي.' }
+      ],
+      examples: [],
+      quiz: [
+        { type:'mc', q:'My sister\'s name is Anna. ____ is eight years old.', opts:['He','Him','She','Her'], answer:2 },
+        { type:'mc', q:'Russia is ____ than Canada.', opts:['bigger','the bigger','biggest','the biggest'], answer:0 },
+        { type:'mc', q:'He went to university in the UK ____ a PhD in physics.', opts:['get','getting','to get','to getting'], answer:2 },
+        { type:'mc', q:'In my opinion, it is not economical ____ your money on cheap, poor-quality products.', opts:['spend','spent','to spend','be spending'], answer:2 },
+        { type:'mc', q:'The computer costs so ____ money that the family decided not to buy it.', opts:['most','more','many','much'], answer:3 },
+        { type:'mc', q:'Go outside and ____ the gardener some water. He needs a break.', opts:['bring','to bring','bringing','will bring'], answer:0 },
+        { type:'mc', q:'"May I speak to Mr. Ben please?" — "I\'m afraid he ____ . I\'m eating right now."', opts:['runs','is running','ran','has run'], answer:1 },
+        { type:'mc', q:'The students had been studying lesson one and the teacher wanted ____ lesson two.', opts:['begin','to begin','they begin','that they begin'], answer:1 },
+        { type:'mc', q:'The boys\' mother told them to finish all of their breakfast, ____ they stuffed their mouths until their plates were empty.', opts:['however','since','as','so'], answer:3 },
+        { type:'mc', q:'At tomorrow\'s event, a large sum of money ____ by an anonymous supporter.', opts:['have donated','will donate','will be donated','are being donated'], answer:2 },
+        { type:'mc', q:'A large box of dates ____ from my uncle.', opts:['have just arrived','has just arrived','having just arrived','just have arrived'], answer:1 },
+        { type:'mc', q:'Bob ____ on holiday last year.', opts:["didn't go","didn't went","doesn't go","not go"], answer:0 },
+        { type:'mc', q:'Steve\'s watch was not working properly ____ he took it to a repair shop.', opts:['but','so','because','while'], answer:1 },
+        { type:'mc', q:'Working in a university last year ____ very interesting.', opts:['is','was','can be','could be'], answer:1 },
+        { type:'mc', q:'If I ____ my car back from the mechanic tomorrow, I will travel to Dubai.', opts:['got','get','am getting','will get'], answer:1 },
+        { type:'mc', q:'I do not understand this sentence. What ____?', opts:['does mean this word','does this word mean','this word means','means this word'], answer:1 },
+        { type:'mc', q:'He worked ____ forty years before he decided to retire.', opts:['for','from','since','during'], answer:0 },
+        { type:'mc', q:'A: The maintenance man was here today. B: Good! ____ you remember to tell him to fix the stairs?', opts:['Are','Were','Do','Did'], answer:3 },
+        { type:'mc', q:'In England, many children ____ wear school uniforms; they can\'t come to school if they don\'t.', opts:['have to','must to','need','can'], answer:0 },
+        { type:'mc', q:'That\'s a beautiful new jacket! Where ____ you buy it?', opts:['are','were','have','did'], answer:3 },
+        { type:'mc', q:'When you arrive, someone ____ for you at the airport.', opts:['waits','will wait','is waiting','will be waiting'], answer:3 },
+        { type:'mc', q:'The children could not ____ out to ride their bikes because it was raining.', opts:['go','going','gone','to go'], answer:0 },
+        { type:'mc', q:'They went to bed as soon as their guests ____ left.', opts:['are','were','had','have'], answer:2 },
+        { type:'mc', q:'Does Chris have to go home now? Let him ____ a while longer.', opts:['stay','stays','to stay','staying'], answer:0 },
+        { type:'mc', q:'The box ____ from recycled paper.', opts:['was made','was making','made','make'], answer:0 },
+        { type:'mc', q:'If I ____ there, I ____ said something to the manager.', opts:['was / would had','have been / will have','had been / would have','were / would had'], answer:2 },
+        { type:'mc', q:'After he ____ the door, he discovered that his keys were not in his pocket.', opts:['was closing','was closed','had closed','has closed'], answer:2 },
+        { type:'mc', q:'The postman had already delivered the mail by the time I ____ for work this morning.', opts:['have left','had left','leave','left'], answer:3 },
+        { type:'mc', q:'Dave sold his car ____ he moved to a new city.', opts:['although','during','when','so'], answer:2 },
+        { type:'mc', q:'I met ____ friends for dinner last night.', opts:['few','a little','some','much'], answer:2 },
+        { type:'mc', q:'I am a little busy now. Can you come back after ____ minutes?', opts:['many','a few','a little','several'], answer:1 },
+        { type:'mc', q:'If you ____ a new phone, can I have your old one?', opts:['is buying','buy','will buy','bought'], answer:1 },
+        { type:'mc', q:'Since you are home early, ____ you like to watch a movie?', opts:['will','do',"won't",'would'], answer:3 },
+        { type:'mc', q:'Ahmed ____ a good horse rider, but then he got injured.', opts:['is using to be','is used to','use to be','used to be'], answer:3 },
+        { type:'mc', q:'Nora has not been to Paris ____ 2005.', opts:['for','from','until','since'], answer:3 },
+        { type:'mc', q:'Steve has worked at Aramco ____ six years.', opts:['from','for','since','during'], answer:1 },
+        { type:'mc', q:'Could you all please prepare ____ for the exam?', opts:['yours','yourself','ourselves','yourselves'], answer:3 },
+        { type:'mc', q:'If you wait 20 minutes, I can take you to the clinic ____.', opts:['myself','mine','my','me'], answer:0 },
+        { type:'mc', q:'Amy can\'t find her car keys. Where ____ she put them?', opts:['are','were','have','did'], answer:3 },
+        { type:'mc', q:'I asked her if she usually ____ for exercise.', opts:['cycled','cycle','cycling','has cycled'], answer:0 },
+        { type:'mc', q:'A huge amount of cake ____ at the party.', opts:['have eaten','will eat','will be eaten','is being eaten'], answer:3 },
+        { type:'mc', q:"Japanese is so difficult. I've been trying to learn it ____ five years.", opts:['for','yet','since','about'], answer:0 },
+        { type:'mc', q:'I ____ in this company since 2009.', opts:['work','am working','have been working','had worked'], answer:2 },
+        { type:'mc', q:'Chris met the man ____ he guessed was the manager.', opts:['he','him','who','which'], answer:2 },
+        { type:'mc', q:'Neither the student ____ the teacher could understand the question.', opts:['nor','also','either','neither'], answer:0 },
+        { type:'mc', q:'If I ____ you, I would definitely watch the new Saudi drama series.', opts:['be','am','been','were'], answer:3 },
+        { type:'mc', q:'If I ____ enough time, I would have visited Oxford.', opts:['had had','have had','had have','have got'], answer:0 },
+        { type:'mc', q:'When you go to the shop, ____ you get me some milk, please?', opts:['shall','would','should','must'], answer:1 },
+        { type:'mc', q:"Adam doesn't like football. He ____ prefer to watch tennis.", opts:['must','could','might','should'], answer:2 },
+        { type:'mc', q:'To open your bank account, please speak to the lady ____ is sitting at desk number 1.', opts:['whose','who','who she','she'], answer:1 },
+        { type:'mc', q:'Ask Mary if she knows where ____.', opts:['your wallet put you','your wallet you put','put you your wallet','you put your wallet'], answer:3 },
+        { type:'mc', q:'Sara was too sick to go to work today, ____ she stayed home and relaxed instead.', opts:['because','why','but','so'], answer:3 },
+        { type:'mc', q:'He did not have ____ money in his wallet, so he stopped by the cash machine.', opts:['lots','much','plenty','many'], answer:1 },
+        { type:'mc', q:'The strawberries ____ by the children who picked them.', opts:['have all eating','were all eaten','were all eating','had all eaten'], answer:1 },
+        { type:'mc', q:'Mr. Amir, ____ the students call Uncle Amir, taught the boys physical education.', opts:['he','him','whom','which'], answer:2 },
+        { type:'mc', q:'If it rains tomorrow, I ____ my raincoat.', opts:['wear','am wear','will wear','going to wear'], answer:2 },
+        { type:'mc', q:'People over forty need ____ regular check-ups at least once a year.', opts:['get','to get','getting','that they get'], answer:1 },
+        { type:'mc', q:'Ben lost his essay, ____ his laptop broke.', opts:['although','during','when','so'], answer:3 },
+        { type:'mc', q:'Excuse me Jan, ____ you please buy some pens from the bookshop for me?', opts:['would','should','shall','must'], answer:0 },
+        { type:'mc', q:'If you want to be a college professor you ____ hard for many years.', opts:['must','must work','must working','must to working'], answer:1 },
+        { type:'mc', q:"If you watch Jonson's lecture on YouTube, you ____ the finance course much better.", opts:['understood','will understand','had understood','would understand'], answer:1 },
+        { type:'mc', q:'If Mrs. Hill finishes writing her new book, she ____ with her family.', opts:['celebrated','will celebrate','had celebrated','would celebrate'], answer:1 },
+        { type:'mc', q:'I actually ____ to study English, but my friends told me to study Spanish instead.', opts:['want','wanted','had wanted','have wanted'], answer:1 },
+        { type:'mc', q:'You need to work much ____, Linda. This is a difficult course.', opts:['hard','hardly','harder','hardest'], answer:2 },
+        { type:'mc', q:'Dave has almost finished reading the book. He only has ____ pages left.', opts:['many','a few','a little','several'], answer:1 },
+        { type:'mc', q:'A good teacher makes his students ____, not just memorize information.', opts:['think','to think','thinking','thought'], answer:0 },
+        { type:'mc', q:"Don't feel stressed when ____ your term paper.", opts:['writing','you writing','are writing','was writing'], answer:0 },
+        { type:'mc', q:"I wouldn't study art history if I ____ you.", opts:['am','been','were','being'], answer:2 },
+        { type:'mc', q:'Jenny needs this book for her course; she ____ want us to buy it for her.', opts:['must to','might','can','must'], answer:3 },
+        { type:'mc', q:'College is much easier for a student ____ has gone to a good high school.', opts:['who he','whose','who','he'], answer:2 },
+        { type:'mc', q:"He said that the class ____ at 1:30, but it actually started at 6:30.", opts:['would start','has started','starting','start'], answer:0 },
+        { type:'mc', q:'The students ____ a new way to process water for six months now.', opts:['have been developing','has developed','is developing','develops'], answer:0 },
+        { type:'mc', q:'Roger was too lazy to work last night, ____ he had a cup of coffee and watched some YouTube videos.', opts:['because','why','but','so'], answer:3 },
+        { type:'mc', q:"A: Is it Rami's turn to start the game? B: No, it isn't. It's ____.", opts:['you',"you're",'your','yours'], answer:3 },
+        { type:'mc', q:'Airplanes usually travel ____ helicopters.', opts:['more faster than','faster than','fastest than','the fastest than'], answer:1 },
+        { type:'mc', q:'All members of my family ____ the pilgrimage to Makkah at least once in their lives.', opts:['are performing','have performed','were performed','have been performed'], answer:1 },
+        { type:'mc', q:"She likes drinking tea. She doesn't like drinking coffee. — Best join:", opts:["She likes drinking tea, but she doesn't like drinking coffee.","She likes drinking tea, so she doesn't like drinking coffee.","She likes drinking tea because she doesn't like drinking coffee.","She likes drinking tea or she doesn't like drinking coffee."], answer:0 },
+        { type:'mc', q:'If I ____ this year, I will celebrate with a big cake.', opts:['am graduating','am graduate','graduate','will graduate'], answer:2 },
+        { type:'mc', q:'When I was in college, ____ a very good student.', opts:['I am using to be','I used to be',"I'm used to",'I use to be'], answer:1 },
+        { type:'mc', q:"I'm so busy with my term paper. I haven't slept much ____ last Thursday.", opts:['for','since','from','until'], answer:1 },
+        { type:'mc', q:'When I logged on to the course website, I was happy to find that my paper ____ two days ago.', opts:['had been scored','being scored','is scored','scored'], answer:0 },
+        { type:'mc', q:"I don't have ____ books for the Engineering course.", opts:['any','a lot','much','some'], answer:0 },
+        { type:'mc', q:'I hope you have enjoyed ____ as much as I have.', opts:['yours','yourself','ourselves','yourselves'], answer:3 },
+        { type:'mc', q:"I met ____ teachers at the conference last week, but I didn't meet any students.", opts:['few','a little','some','much'], answer:2 }
+      ]
+    }
+  }
+};
+
+/* ═════════════════════════════════════════
+   IELTS exam tips — shown in each topic's hero
+   ═════════════════════════════════════════ */
+const IELTS_TIPS = {
+  'be-pres': 'في الـ <strong>Speaking</strong> تُلاحَظ أخطاء am/is/are بسرعة وتؤثر على معيار <strong>Grammatical Accuracy</strong>. راقب توافق الفاعل مع الفعل حتى في الكلام السريع.',
+  'was-were': 'مفيدة لوصف تجربة ماضية في <strong>Speaking Part 2</strong>. اختيار was/were الصحيح يعطي انطباع دقة وثقة.',
+  'pronouns': 'تنويع الضمائر بدل تكرار الأسماء يحسّن <strong>Coherence & Cohesion</strong> في الكتابة.',
+  'do-does': 'صياغة الأسئلة الصحيحة مهمة في <strong>Speaking</strong> عند الاستفسار أو إعادة السؤال على الممتحِن.',
+  'did': 'أغلب قصص <strong>Speaking Part 2</strong> في الماضي. أتقن <code>did / didn\'t + المصدر</code> لتجنّب أخطاء شائعة.',
+  'present-simple': 'استخدمه للحقائق والآراء العامة في الكتابة: <em>Many people believe that…</em>',
+  'present-cont': 'ممتاز لوصف الاتجاهات الحالية في <strong>Task 1</strong>: <em>The number of users is increasing.</em>',
+  'past-simple': 'أساس سرد التجارب في <strong>Speaking Part 2</strong> ووصف بيانات ماضية في Task 1.',
+  'past-cont': 'يضيف تفاصيل للقصص: <em>While I was studying…</em> ويرفع درجة <strong>Grammatical Range</strong>.',
+  'present-perfect': 'مثالي للخبرات: <em>I have visited several countries.</em> شائع جدًا في <strong>Speaking Part 1</strong>.',
+  'past-perfect': 'يُظهر تسلسل الأحداث ويعطي تنوّعًا نحويًا يرفع الـ Band في الكتابة.',
+  'future-simple': 'لازم في أسئلة المستقبل بالـ Speaking وفي التوقعات والتنبؤات بالكتابة.',
+  'tense-tracks': 'الخلط بين الأزمنة من أكثر الأخطاء التي تخفض الـ Band. هذا الجدول يثبّت دقتك تحت ضغط الوقت.',
+  'sentence-types': 'الـ <strong>Writing</strong> يطلب مزج الجمل البسيطة والمعقدة. التنويع الصحيح = Band 7+ في <strong>Grammatical Range</strong>.',
+  'if-conditions': 'الجمل الشرطية (خصوصًا الثانية) ترفع تقييمك في الـ Speaking: <em>If I had more time, I would…</em>',
+  'relative-clauses': 'الجمل الموصولة أداة قوية لبناء جمل معقدة دقيقة في الكتابة الأكاديمية.',
+  'time-connectors': 'تربط الأحداث زمنيًا وتحسّن سلاسة الفقرة ضمن <strong>Coherence</strong>.',
+  'linking-words': 'الروابط جوهر معيار <strong>Coherence & Cohesion</strong>، لكن لا تُفرط فيها؛ الاستخدام الطبيعي أفضل من الحشو.',
+  'articles': 'أخطاء a/an/the من أكثر ما يخفض الدقة عند المتحدثين العرب. راجعها في كل جملة كتابية.',
+  'quantifiers': 'في <strong>Task 1</strong> تصف الكميات باستمرار: <em>much, many, the majority of, a small number of.</em>',
+  'plurals-agreement': 'توافق الفاعل مع الفعل معيار دقة أساسي؛ انتبه له في الجمل الطويلة المعقدة.',
+  'prepositions': 'حروف الجر الزمنية (at/on/in) من أكثر الأخطاء شيوعًا. إتقانها يرفع <strong>Grammatical Accuracy</strong>.',
+  'passive': 'المبني للمجهول ضروري في <strong>Writing Task 1</strong> ووصف العمليات (Processes): <em>The data were collected…</em>',
+  'modals': 'الأفعال الناقصة (should, could, might) تعبّر عن الرأي والاحتمال بلطف أكاديمي مطلوب في الكتابة.',
+  'comparison': 'في <strong>Task 1</strong> تقارن البيانات دائمًا: <em>higher than, the highest, twice as many as.</em>',
+  'step-exam': 'تدرّب على هذه الأسئلة بإيقاع زمني محدود كما في الامتحان الحقيقي لتعتاد على الضغط.'
+};
+
+/* topic → emoji (cute card icons) */
+const TOPIC_EMOJI = {
+  'be-pres': '✨', 'was-were': '⏪', 'pronouns': '👤',
+  'do-does': '❓', 'did': '⏳',
+  'present-simple': '☀️', 'present-cont': '🔄', 'past-simple': '📅', 'past-cont': '🎬',
+  'present-perfect': '✅', 'past-perfect': '⏮️', 'future-simple': '🚀', 'tense-tracks': '🛤️',
+  'sentence-types': '🧩', 'if-conditions': '🔀', 'relative-clauses': '🔗', 'time-connectors': '⏱️', 'linking-words': '➕',
+  'articles': '📰', 'quantifiers': '🔢', 'plurals-agreement': '👥',
+  'prepositions': '📍',
+  'passive': '🔁', 'modals': '🎯', 'comparison': '⚖️',
+  'step-exam': '🏆'
+};
+
+/* ═════════════════════════════════════════
+   RENDERING
+   ═════════════════════════════════════════ */
+
+function renderHub() {
+  const wrap = document.getElementById('hub-categories');
+  wrap.innerHTML = COURSE.categories.map((cat, ci) => {
+    const cards = cat.topics.map(tid => {
+      const t = COURSE.topics[tid];
+      const qCount = t.quiz.length;
+      return `
+        <div class="topic-card" onclick="openTopic('${tid}')">
+          <div class="topic-icon">${TOPIC_EMOJI[tid] || t.icon}</div>
+          <div class="topic-name-ar">${t.titleAr}</div>
+          <div class="topic-name-en">${t.titleEn}</div>
+          <span class="topic-q-count">${qCount} سؤال</span>
+        </div>`;
+    }).join('');
+    return `
+      <div class="category">
+        <div class="category-header">
+          <span class="category-number">${String(ci + 1).padStart(2, '0')}</span>
+          <div class="category-title-block">
+            <div class="category-title">${cat.titleAr}</div>
+            <div class="category-en">${cat.titleEn}</div>
+          </div>
+          <span class="category-line"></span>
+        </div>
+        <div class="topic-grid">${cards}</div>
+      </div>`;
+  }).join('');
+}
+
+let currentTopicId = null;
+let allTopicIds = [];
+
+function buildTopicList() {
+  allTopicIds = [];
+  COURSE.categories.forEach(c => c.topics.forEach(t => allTopicIds.push(t)));
+}
+
+const TYPE_LABELS = {
+  mc:    { ar: 'اختيار من متعدد', en: 'Multiple Choice', cls: '' },
+  fill:  { ar: 'أكمل الجملة', en: 'Fill in the Blank', cls: 'fill' },
+  err:   { ar: 'صحح الخطأ', en: 'Error Correction', cls: 'err' },
+  tf:    { ar: 'صح أو خطأ', en: 'True / False', cls: 'tf' },
+  match: { ar: 'طابق', en: 'Match', cls: 'match' },
+  chal:  { ar: 'تحدّي', en: 'Challenge', cls: 'chal' }
+};
+
+function renderQuestionContent(q, qi) {
+  const meta = TYPE_LABELS[q.type] || TYPE_LABELS.mc;
+
+  let questionHtml = '';
+  if (q.type === 'err') {
+    questionHtml = `<div class="quiz-question-text">
+      جد الجملة الصحيحة بدلاً من هذي:
+      <span class="err-sentence">❌ ${q.sentence}</span>
+    </div>`;
+  } else if (q.type === 'fill') {
+    const filled = q.q.replace(/_+/g, '<span class="blank">?</span>');
+    questionHtml = `<div class="quiz-question-text" dir="ltr">${filled}</div>`;
+  } else {
+    questionHtml = `<div class="quiz-question-text" dir="ltr">${q.q}</div>`;
+  }
+
+  const opts = q.opts.map((o, oi) => `
+    <button class="quiz-option" onclick="answer(${qi}, ${oi})">
+      <span class="quiz-option-letter">${String.fromCharCode(65 + oi)}</span>
+      <span>${o}</span>
+    </button>`).join('');
+
+  return `
+    <div class="quiz-question" data-q="${qi}">
+      <div class="quiz-question-meta">
+        <span class="quiz-question-num">Question ${qi + 1}</span>
+        <span class="quiz-type-badge ${meta.cls}">${meta.ar} · ${meta.en}</span>
+      </div>
+      ${questionHtml}
+      <div class="quiz-options">${opts}</div>
+      <div class="quiz-feedback" id="fb-${qi}"></div>
+    </div>
+  `;
+}
+
+function openTopic(tid) {
+  currentTopicId = tid;
+  const t = COURSE.topics[tid];
+  const idx = allTopicIds.indexOf(tid) + 1;
+
+  const rulesHtml = t.rules.map(r => {
+    if (r.type === 'text') return `<div class="rule-block">${r.html}</div>`;
+    if (r.type === 'table') {
+      const head = r.headers.map(h => `<th>${h}</th>`).join('');
+      const rows = r.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
+      return `<table class="rule-table" dir="ltr"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
+    }
+    return '';
+  }).join('');
+
+  const tip = IELTS_TIPS[tid];
+  const ieltsHtml = tip ? `
+    <div class="ielts-tip">
+      <span class="ielts-badge">✦ IELTS Tip</span>
+      ${tip}
+    </div>` : '';
+
+  const examplesHtml = t.examples.length ? `
+    <div class="section-label">أمثلة · Examples</div>
+    <div class="examples">
+      ${t.examples.map(ex => `<div class="example-pill">${ex}</div>`).join('')}
+    </div>` : '';
+
+  document.getElementById('topic-hero').innerHTML = `
+    <span class="topic-tag">${t.tagline}</span>
+    <h2 class="topic-title-ar">${t.titleAr}</h2>
+    <p class="topic-title-en">${t.titleEn}</p>
+    <div class="section-label">القاعدة · The Rule</div>
+    ${rulesHtml}
+    ${ieltsHtml}
+    ${examplesHtml}
+  `;
+
+  const quizHtml = t.quiz.map((q, qi) => renderQuestionContent(q, qi)).join('');
+
+  document.getElementById('quiz-section').innerHTML = `
+    <div class="quiz-header">
+      <div class="quiz-icon">✦</div>
+      <h2 class="quiz-title">اختبر نفسك</h2>
+      <p class="quiz-subtitle">${t.quiz.length} questions · all types</p>
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qpf" style="width:0%"></div></div>
+    </div>
+    ${quizHtml}
+    <div class="quiz-result" id="quiz-result"></div>
+  `;
+
+  document.getElementById('topic-progress').textContent = `${idx} / ${allTopicIds.length}`;
+
+  quizState = {answered: 0, correct: 0, total: t.quiz.length, locked: new Set()};
+
+  const nextBtn = document.getElementById('next-topic-btn');
+  if (idx < allTopicIds.length) {
+    nextBtn.style.display = 'flex';
+    nextBtn.disabled = false;
+  } else {
+    nextBtn.style.display = 'none';
+  }
+
+  show('topic-page');
+  window.scrollTo(0, 0);
+}
+
+function nextTopic() {
+  const idx = allTopicIds.indexOf(currentTopicId);
+  if (idx < allTopicIds.length - 1) {
+    openTopic(allTopicIds[idx + 1]);
+  } else {
+    show('completion');
+  }
+}
+
+let quizState = null;
+
+function answer(qi, oi) {
+  if (!quizState || quizState.locked.has(qi)) return;
+  const t = COURSE.topics[currentTopicId];
+  const q = t.quiz[qi];
+  const correct = q.answer;
+  const buttons = document.querySelectorAll(`.quiz-question[data-q="${qi}"] .quiz-option`);
+  buttons.forEach(b => b.classList.add('locked'));
+  buttons[oi].classList.add(oi === correct ? 'correct' : 'wrong');
+  if (oi !== correct) buttons[correct].classList.add('correct');
+
+  const fb = document.getElementById(`fb-${qi}`);
+  if (oi === correct) {
+    fb.className = 'quiz-feedback success show';
+    fb.innerHTML = '✓ ممتاز! إجابة صحيحة.' + (q.note ? `<br>${q.note}` : '');
+    quizState.correct++;
+  } else {
+    fb.className = 'quiz-feedback failure show';
+    fb.innerHTML = `✗ غير صحيح. الإجابة الصحيحة: <strong class="ltr-inline">${q.opts[correct]}</strong>` + (q.note ? `<br>${q.note}` : '');
+  }
+  quizState.locked.add(qi);
+  quizState.answered++;
+
+  const pf = document.getElementById('qpf');
+  if (pf) pf.style.width = `${(quizState.answered / quizState.total) * 100}%`;
+
+  if (quizState.answered === quizState.total) {
+    setTimeout(showResult, 400);
+  }
+}
+
+function showResult() {
+  const r = document.getElementById('quiz-result');
+  const pct = Math.round((quizState.correct / quizState.total) * 100);
+  let msg, emoji;
+  if (pct === 100) { msg = 'إجادة كاملة! ماشاء الله.'; emoji = '🏆'; }
+  else if (pct >= 80) { msg = 'ممتاز! مستواك قوي.'; emoji = '⭐'; }
+  else if (pct >= 60) { msg = 'جيد. راجع الأخطاء وحاول ثانية.'; emoji = '👍'; }
+  else { msg = 'لا بأس. ارجع للقاعدة وأعد المحاولة.'; emoji = '📖'; }
+
+  r.classList.add('show');
+  r.innerHTML = `
+    <div style="font-size:48px; margin-bottom:8px;">${emoji}</div>
+    <div class="quiz-result-score">${quizState.correct} / ${quizState.total}</div>
+    <div class="quiz-result-msg">${msg}</div>
+    <button class="restart-btn" onclick="openTopic('${currentTopicId}')">حاول مرة أخرى</button>
+  `;
+
+  setTimeout(() => r.scrollIntoView({behavior: 'smooth', block: 'center'}), 100);
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+/* INIT */
+buildTopicList();
+renderHub();
+</script>
+</body>
+</html>
